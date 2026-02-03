@@ -1,0 +1,3691 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вайб-кодинг: с 0 до PRO — Презентация курса</title>
+  <meta name="description" content="Как создавать сайты, подключать ИИ-агентов и ботов, автоматизировать процессы без классического программирования. Онлайн-курс 5 недель. Школа нейросетей.">
+  <meta property="og:title" content="Вайб-кодинг: с 0 до PRO — Школа нейросетей">
+  <meta property="og:description" content="Сайты, ИИ-агенты, боты, автоматизация — без сложного кода. 5 недель. Школа нейросетей.">
+  <meta property="og:image" content="hero-title.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --accent: #00e5a0;
+      --accent-dim: rgba(0, 229, 160, 0.15);
+      --text: #e8e8ed;
+      --text-muted: #8888a0;
+      --border: rgba(255,255,255,0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding-bottom: 4rem;
+    }
+
+    .slide {
+      min-height: 100vh;
+      padding: 4rem 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (max-width: 700px) {
+      .slide {
+        min-height: auto;
+        padding: 1.75rem 4%;
+      }
+      .slide-title { margin-bottom: 0.65rem; }
+      .slide-subtitle { margin-bottom: 1rem; }
+      .slide-body { margin-top: 1rem; }
+      body { padding-bottom: 2rem; }
+      .cta-line { margin-top: 1.25rem; }
+      .hero-game { margin-top: 1.25rem; padding: 1rem; }
+      .tariff-alumni-note { margin-top: 1.25rem; padding: 1rem 1.25rem; }
+      .program-scroll-wrap { margin-top: 1rem; padding: 1rem; }
+      .final-cta-wrap { margin-top: 0.5rem; }
+    }
+
+    .slide-content {
+      max-width: 820px;
+      width: 100%;
+    }
+
+    .slide-title {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .slide-title .accent {
+      background: linear-gradient(135deg, var(--accent) 0%, #00c896 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .slide-hero .slide-title .accent {
+      display: block;
+      margin-top: 0.15em;
+    }
+
+    /* Печатающийся заголовок — место под полный текст, поверх печать + курсор */
+    .hero-title-tw {
+      position: relative;
+      min-height: 1.2em;
+    }
+    .hero-title-measure {
+      visibility: hidden;
+      display: block;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .hero-title-visible {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      text-align: center;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title-visible .accent {
+      display: block;
+      margin-top: 0.15em;
+      background: linear-gradient(135deg, var(--accent) 0%, #00c896 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title-cursor {
+      display: inline-block;
+      animation: heroCursorBlink 0.9s step-end infinite;
+      color: var(--accent);
+      margin-left: 1px;
+    }
+    .hero-title-tw.done .hero-title-cursor {
+      display: none;
+    }
+    @keyframes heroCursorBlink {
+      0%, 55% { opacity: 1; }
+      56%, 100% { opacity: 0; }
+    }
+
+    .slide-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .slide-subtitle-bright {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Блок «Абсолютно новая программа» — подсветка */
+    #what-is {
+      position: relative;
+      overflow: hidden;
+    }
+    #what-is .badge {
+      background: linear-gradient(135deg, rgba(0, 229, 160, 0.35) 0%, rgba(0, 200, 140, 0.25) 100%);
+      color: var(--accent);
+      box-shadow: 0 0 24px rgba(0, 229, 160, 0.25);
+    }
+    #what-is .slide-title {
+      text-shadow: 0 0 40px rgba(0, 229, 160, 0.2);
+    }
+    #what-is .slide-title .accent-word {
+      background: linear-gradient(135deg, var(--accent) 0%, #00c896 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #what-is-fireworks {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #what-is .slide-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .slide-body {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      text-align: left;
+      margin-top: 1.5rem;
+    }
+
+    .slide-body ul {
+      list-style: none;
+    }
+
+    .slide-body li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .slide-body li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.9rem;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Hero */
+    .slide-hero {
+      background: radial-gradient(ellipse 80% 60% at 50% 20%, var(--accent-dim) 0%, transparent 50%);
+    }
+
+    .slide-hero .slide-content {
+      max-width: 820px;
+      text-align: center;
+      position: relative;
+    }
+
+    .slide-hero .hero-text {
+      min-width: 0;
+    }
+
+    .slide-hero .slide-title {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    .slide-hero .slide-subtitle {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: var(--text);
+      max-width: none;
+    }
+
+    .slide-hero .slide-body {
+      text-align: center;
+    }
+
+    /* Мини-игра на титуле: Тетрис */
+    .hero-game {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .hero-game-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-game-main {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    /* Каллаут у игры: вариант «тихий» — полоска слева, без стрелки и пульсации */
+    .hero-game-callout {
+      flex: 0 0 auto;
+      max-width: 200px;
+      text-align: center;
+      padding: 1rem 1.25rem 1rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-game-callout::before {
+      display: none;
+    }
+
+    .hero-game-callout-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .hero-game-intro {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .hero-game p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-game-wrap {
+      margin: 0 auto 0.75rem;
+      width: 132px;
+      height: 268px;
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 8px;
+      border: 2px solid var(--border);
+      box-sizing: border-box;
+      position: relative;
+      touch-action: none;
+      /* Форма «колодца» тетриса: узкий высокий прямоугольник */
+    }
+
+    .tetris-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-game-score {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-game-score strong { color: var(--accent); }
+
+    .hero-game-result {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+      margin-top: 0.75rem;
+      display: none;
+      padding: 0.6rem 0.9rem;
+      background: rgba(0, 229, 160, 0.1);
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 229, 160, 0.15);
+    }
+
+    .hero-game-result.show {
+      display: inline-block;
+      animation: resultPop 0.5s ease;
+    }
+
+    .hero-game-result-link {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .hero-game-result-link:hover {
+      color: #fff;
+    }
+
+    @keyframes resultPop {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .tetris-over {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      border-radius: 12px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .tetris-over.show { display: flex; }
+
+    .tetris-controls {
+      display: none;
+      margin-top: 1.25rem;
+      gap: 0.85rem;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(160deg, rgba(18, 18, 26, 0.95) 0%, rgba(10, 10, 15, 0.98) 100%);
+      border: 1px solid rgba(0, 229, 160, 0.12);
+      border-radius: 20px;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+        0 0 40px rgba(0, 229, 160, 0.06);
+    }
+
+    .tetris-controls-row {
+      display: flex;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .tetris-btn {
+      width: 58px;
+      height: 58px;
+      border: none;
+      border-radius: 18px;
+      background: linear-gradient(165deg, rgba(0, 229, 160, 0.18) 0%, rgba(0, 200, 140, 0.08) 50%, rgba(0, 160, 110, 0.12) 100%);
+      color: var(--accent);
+      font-size: 1.6rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(0, 229, 160, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.12);
+      text-shadow: 0 0 20px rgba(0, 229, 160, 0.5);
+      line-height: 1;
+    }
+
+    .tetris-btn:hover,
+    .tetris-btn:focus {
+      color: #fff;
+      transform: scale(1.06);
+      filter: brightness(1.15);
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 229, 160, 0.4),
+        0 0 28px rgba(0, 229, 160, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.18);
+      text-shadow: 0 0 24px rgba(0, 229, 160, 0.9);
+    }
+
+    .tetris-btn:focus-visible {
+      outline: none;
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        0 0 0 2px var(--accent),
+        0 0 32px rgba(0, 229, 160, 0.25),
+        inset 0 2px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .tetris-btn:active {
+      transform: scale(0.94);
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(0, 229, 160, 0.15),
+        inset 0 3px 8px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 0 12px rgba(0, 229, 160, 0.6);
+    }
+
+    .tetris-btn-rotate {
+      font-size: 2rem;
+      background: linear-gradient(165deg, rgba(183, 102, 255, 0.22) 0%, rgba(140, 70, 220, 0.1) 50%, rgba(120, 50, 200, 0.14) 100%);
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(183, 102, 255, 0.25),
+        0 0 24px rgba(183, 102, 255, 0.12),
+        inset 0 2px 0 rgba(255, 255, 255, 0.1);
+      color: #d4b8ff;
+      text-shadow: 0 0 20px rgba(183, 102, 255, 0.6);
+    }
+
+    .tetris-btn-rotate:hover,
+    .tetris-btn-rotate:focus {
+      color: #f0e4ff;
+      filter: brightness(1.2);
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(183, 102, 255, 0.45),
+        0 0 36px rgba(183, 102, 255, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+      text-shadow: 0 0 28px rgba(183, 102, 255, 0.95);
+    }
+
+    .tetris-btn-rotate:active {
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(183, 102, 255, 0.2),
+        inset 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    @media (max-width: 700px) {
+      .tetris-controls {
+        display: flex;
+      }
+    }
+
+    .hero-game .game-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 100px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .hero-game .game-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-game .game-result {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .hero-game .game-result.show {
+      display: block;
+    }
+
+    .hero-game .game-result.game-over {
+      color: var(--text-muted);
+    }
+
+    .hero-game .game-count {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Two columns */
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      text-align: left;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .two-cols { grid-template-columns: 1fr; }
+    }
+
+    .col-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .col-card h3 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Тарифы рядом — сравнение */
+    .tariff-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .tariff-cols { grid-template-columns: 1fr; }
+    }
+
+    .tariff-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      text-align: left;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+    }
+    .tariff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .tariff-card--pro {
+      border-color: rgba(0, 229, 160, 0.3);
+      box-shadow: 0 0 24px rgba(0, 229, 160, 0.08);
+    }
+    .tariff-card--pro:hover {
+      border-color: rgba(0, 229, 160, 0.5);
+      box-shadow: 0 12px 36px rgba(0, 229, 160, 0.15);
+    }
+
+    .tariff-badge {
+      position: absolute;
+      top: -0.5rem;
+      right: 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--bg);
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      border: 1px solid var(--accent);
+    }
+
+    .tariff-name {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.35rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .tariff-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.45;
+    }
+
+    .tariff-list {
+      list-style: none;
+      margin: 0 0 1.25rem;
+      padding: 0;
+    }
+
+    .tariff-list li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.35rem 0 0.35rem 1.5rem;
+      position: relative;
+    }
+
+    .tariff-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .tariff-list--modules li {
+      font-size: 0.85rem;
+      padding: 0.3rem 0 0.3rem 1.35rem;
+    }
+
+    .tariff-list--modules li::before {
+      top: 0.55rem;
+      width: 5px;
+      height: 5px;
+    }
+
+    .tariff-list--modules strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .tariff-list-plus {
+      margin-top: 0.5rem;
+      padding-left: 0.5rem !important;
+    }
+
+    .tariff-list-plus:first-of-type {
+      margin-top: 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .tariff-list-plus::before {
+      display: none;
+    }
+
+    .tariff-list-plus strong {
+      color: var(--accent);
+      margin-right: 0.25rem;
+    }
+
+    .tariff-extras {
+      list-style: none;
+      margin: 0.75rem 0 1rem;
+      padding: 0.75rem 0 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .tariff-extras li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 0.2rem 0 0.2rem 1.25rem;
+      position: relative;
+    }
+
+    .tariff-extras li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tariff-card--pro .tariff-list li::before {
+      background: var(--accent);
+    }
+
+    .tariff-price-block {
+      margin: 1rem 0;
+      padding: 0.75rem 0 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .tariff-price-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .tariff-price-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .tariff-price-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .tariff-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .tariff-price[data-price]:not([data-price=""]) {
+      color: var(--accent);
+    }
+
+    .tariff-btn-wrap {
+      text-align: center;
+      margin-top: 0.25rem;
+    }
+
+    .tariff-alumni-note {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(0, 229, 160, 0.06);
+      border: 1px solid rgba(0, 229, 160, 0.2);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .tariff-alumni-note-text {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .tariff-alumni-note-text strong {
+      color: var(--accent);
+    }
+
+    .cta-btn--small {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    /* Program weeks */
+    .weeks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .week-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .week-card .week-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .week-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .week-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .program-scroll-wrap {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      background: linear-gradient(180deg, rgba(18, 18, 26, 0.6) 0%, rgba(10, 10, 15, 0.8) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .program-scroll {
+      max-height: 52vh;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .program-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .program-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    .program-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0, 229, 160, 0.25);
+      border-radius: 4px;
+    }
+
+    .program-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 229, 160, 0.4);
+    }
+
+    .program-card {
+      margin-bottom: 1.25rem;
+      text-align: left;
+      position: relative;
+      padding: 1.35rem 1.5rem 1.35rem 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      border-left: 3px solid var(--accent);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.25s ease;
+    }
+
+    .program-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .program-card:hover {
+      border-left-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0, 229, 160, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .program-module--practice {
+      border-left-color: rgba(183, 102, 255, 0.8);
+    }
+
+    .program-module--practice:hover {
+      box-shadow: 0 4px 20px rgba(183, 102, 255, 0.1);
+    }
+
+    .program-module-num {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(0, 229, 160, 0.5);
+      letter-spacing: 0.05em;
+    }
+
+    .program-module--practice .program-module-num {
+      color: rgba(183, 102, 255, 0.6);
+    }
+
+    .program-module-pro-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(0, 229, 160, 0.12);
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      margin-bottom: 0.5rem;
+      border: 1px solid rgba(0, 229, 160, 0.25);
+    }
+
+    .program-card .week-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      padding-right: 2.5rem;
+      line-height: 1.3;
+    }
+
+    .program-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .program-module-result {
+      margin-top: 0.6rem;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.88rem;
+      color: var(--accent);
+      line-height: 1.5;
+      background: rgba(0, 229, 160, 0.06);
+      border-radius: 10px;
+      border: 1px solid rgba(0, 229, 160, 0.12);
+    }
+
+    .program-module-result strong {
+      color: var(--accent);
+    }
+
+    .program-lessons-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .program-lessons {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.25rem;
+    }
+
+    .program-lessons li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.35rem 0 0.35rem 1.35rem;
+      position: relative;
+      line-height: 1.45;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #program.slide.animate.in-view .program-lessons li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #program.slide.animate.in-view .program-lessons li:nth-child(1) { transition-delay: 0.05s; }
+    #program.slide.animate.in-view .program-lessons li:nth-child(2) { transition-delay: 0.1s; }
+    #program.slide.animate.in-view .program-lessons li:nth-child(3) { transition-delay: 0.15s; }
+    #program.slide.animate.in-view .program-lessons li:nth-child(4) { transition-delay: 0.2s; }
+    #program.slide.animate.in-view .program-lessons li:nth-child(5) { transition-delay: 0.25s; }
+    #program.slide.animate.in-view .program-lessons li:nth-child(6) { transition-delay: 0.3s; }
+    #program.slide.animate.in-view .program-lessons li:nth-child(7) { transition-delay: 0.35s; }
+    #program.slide.animate.in-view .program-lessons li:nth-child(8) { transition-delay: 0.4s; }
+
+    .program-lessons li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .week-result {
+      margin-top: 0.75rem !important;
+      font-size: 0.9rem !important;
+      color: var(--accent) !important;
+    }
+
+    /* CTA */
+    .cta-line {
+      margin-top: 2rem;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+
+    .cta-line strong {
+      color: var(--accent);
+    }
+
+    /* Nav */
+    .nav-dots {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .nav-dots a {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-dots a:hover,
+    .nav-dots a.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    /* List with emoji / check */
+    .check-list {
+      list-style: none;
+      text-align: left;
+      max-width: 520px;
+      margin: 1.5rem auto 0;
+    }
+
+    .check-list li {
+      padding: 0.6rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: var(--text);
+    }
+
+    .check-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* Блок «Что делает курс особенным» — карточки фич */
+    #special .slide-title {
+      margin-bottom: 1.75rem;
+    }
+    .special-features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 600px) {
+      .special-features {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 640px;
+        gap: 1rem;
+      }
+    }
+    @media (min-width: 900px) {
+      .special-features {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 720px;
+      }
+    }
+    .special-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 1rem 1.15rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      border-left: 3px solid var(--accent);
+      text-align: left;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.4;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    #special.slide.animate.in-view .special-feature {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #special.slide.animate.in-view .special-feature:nth-child(1) { transition-delay: 0.08s; }
+    #special.slide.animate.in-view .special-feature:nth-child(2) { transition-delay: 0.16s; }
+    #special.slide.animate.in-view .special-feature:nth-child(3) { transition-delay: 0.24s; }
+    #special.slide.animate.in-view .special-feature:nth-child(4) { transition-delay: 0.32s; }
+    #special.slide.animate.in-view .special-feature:nth-child(5) { transition-delay: 0.4s; }
+    .special-feature:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 229, 160, 0.12);
+      border-left-color: var(--accent);
+    }
+    .special-feature-icon {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .special-feature-text {
+      margin: 0;
+      padding-top: 0.1rem;
+    }
+    .special-tagline {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(135deg, rgba(0, 229, 160, 0.08) 0%, rgba(0, 200, 140, 0.04) 100%);
+      border: 1px solid rgba(0, 229, 160, 0.25);
+      border-radius: 14px;
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease 0.45s, transform 0.4s ease 0.45s;
+    }
+    #special.slide.animate.in-view .special-tagline {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .special-tagline strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .slide-body.center ul {
+      display: inline-block;
+      text-align: left;
+      margin: 0 auto;
+    }
+
+    /* Format result */
+    .result-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .result-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .result-card .icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-card strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .result-card span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Final CTA */
+    .slide-final .slide-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .slide-final .slide-subtitle {
+      color: var(--text);
+      font-size: 1.2rem;
+    }
+
+    /* Branding footer */
+    .brand-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.75rem 1.5rem;
+      background: rgba(10, 10, 15, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      z-index: 50;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .brand-footer .brand-name {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0;
+      white-space: nowrap;
+    }
+
+    .brand-footer strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .brand-footer .brand-secondary {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .brand-footer .sep {
+      color: var(--border);
+      font-weight: 300;
+    }
+
+    /* Brand slide (author + photo) */
+    .slide-brand {
+      padding-bottom: 4rem;
+    }
+
+    .slide-title-brand {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+    }
+
+    .slide-title-brand .brand-main {
+      color: var(--text);
+      -webkit-text-fill-color: var(--text);
+      background: none;
+    }
+
+    .slide-title-brand .brand-sub {
+      color: var(--text-muted);
+      font-weight: 500;
+      -webkit-text-fill-color: var(--text-muted);
+      background: none;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .brand-photo-wrap {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent-dim);
+      flex-shrink: 0;
+      background: var(--surface);
+    }
+
+    .brand-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-photo-wrap .placeholder {
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 1rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .brand-photo-wrap .placeholder.show {
+      display: flex;
+    }
+
+    .brand-photo-wrap img[src=""],
+    .brand-photo-wrap img:not([src]) {
+      display: none;
+    }
+
+    .brand-photo-wrap img[src=""] + .placeholder,
+    .brand-photo-wrap img:not([src]) + .placeholder {
+      display: flex;
+    }
+
+    .brand-text h3 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .brand-text p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Примеры — компактный список с анимацией */
+    .examples-list {
+      list-style: none;
+      max-width: 720px;
+      margin: 1.5rem auto 0;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    @media (min-width: 640px) {
+      .examples-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .examples-list li {
+      padding: 0.65rem 1rem 0.65rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.4s ease, transform 0.4s ease;
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .slide.animate.in-view .examples-list li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide.animate.in-view .examples-list li:nth-child(1) { transition-delay: 0.05s; }
+    .slide.animate.in-view .examples-list li:nth-child(2) { transition-delay: 0.1s; }
+    .slide.animate.in-view .examples-list li:nth-child(3) { transition-delay: 0.15s; }
+    .slide.animate.in-view .examples-list li:nth-child(4) { transition-delay: 0.2s; }
+    .slide.animate.in-view .examples-list li:nth-child(5) { transition-delay: 0.25s; }
+    .slide.animate.in-view .examples-list li:nth-child(6) { transition-delay: 0.3s; }
+    .slide.animate.in-view .examples-list li:nth-child(7) { transition-delay: 0.35s; }
+    .slide.animate.in-view .examples-list li:nth-child(8) { transition-delay: 0.4s; }
+    .examples-list li:hover {
+      border-left-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(0, 229, 160, 0.1);
+      transform: translateY(-2px);
+    }
+    .examples-list li strong {
+      display: inline;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .examples-list li strong::after {
+      content: ' ';
+    }
+    .examples-list-footer {
+      margin-top: 1.25rem;
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-style: italic;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease 0.45s, transform 0.4s ease 0.45s;
+    }
+    .slide.animate.in-view .examples-list-footer {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Product examples — carousel (оставлено для совместимости, не используется) */
+    .products-carousel-wrap {
+      position: relative;
+      margin-top: 2rem;
+      max-width: 100%;
+    }
+
+    .products-carousel {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 0.5rem 0 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .products-carousel::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .products-carousel::-webkit-scrollbar-track {
+      background: var(--surface);
+      border-radius: 3px;
+    }
+
+    .products-carousel::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    .products-carousel::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+
+    .product-card {
+      flex: 0 0 min(280px, 85vw);
+      scroll-snap-align: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      text-align: left;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-dim);
+    }
+
+    .product-card .product-preview {
+      height: 160px;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-card .product-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-card .product-info {
+      padding: 1rem 1.25rem;
+    }
+
+    .product-card .product-info strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .product-card .product-info span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .carousel-nav-btn:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .carousel-nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Animations */
+    .slide.animate {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .slide.animate.in-view {
+      opacity: 1;
+      transform: none;
+    }
+
+    .slide.animate .slide-content > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .slide.animate.in-view .slide-content > .badge { transition-delay: 0.05s; }
+    .slide.animate.in-view .slide-content > .slide-title { transition-delay: 0.1s; }
+    .slide.animate.in-view .slide-content > .slide-subtitle { transition-delay: 0.15s; }
+    .slide.animate.in-view .slide-content > .slide-body { transition-delay: 0.2s; }
+    .slide.animate.in-view .slide-content > .two-cols,
+    .slide.animate.in-view .slide-content > .tariff-cols,
+    .slide.animate.in-view .slide-content > .weeks-grid,
+    .slide.animate.in-view .slide-content > .result-cards,
+    .slide.animate.in-view .slide-content > .products-carousel-wrap { transition-delay: 0.15s; }
+    .slide.animate.in-view .slide-content > .check-list { transition-delay: 0.15s; }
+    .slide.animate.in-view .slide-content > .cta-line { transition-delay: 0.25s; }
+
+    .slide.animate.in-view .slide-content > * {
+      opacity: 1;
+      transform: none;
+    }
+
+    .slide.animate.in-view .week-card,
+    .slide.animate.in-view .result-card,
+    .slide.animate.in-view .col-card,
+    .slide.animate.in-view .tariff-card,
+    .slide.animate.in-view .product-card {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .slide.animate.in-view .week-card:nth-child(1),
+    .slide.animate.in-view .result-card:nth-child(1),
+    .slide.animate.in-view .product-card:nth-child(1) { transition-delay: 0.2s; opacity: 1; transform: none; }
+    .slide.animate.in-view .week-card:nth-child(2),
+    .slide.animate.in-view .result-card:nth-child(2),
+    .slide.animate.in-view .product-card:nth-child(2) { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .slide.animate.in-view .week-card:nth-child(3),
+    .slide.animate.in-view .result-card:nth-child(3),
+    .slide.animate.in-view .product-card:nth-child(3) { transition-delay: 0.36s; opacity: 1; transform: none; }
+    .slide.animate.in-view .week-card:nth-child(4),
+    .slide.animate.in-view .result-card:nth-child(4),
+    .slide.animate.in-view .product-card:nth-child(4) { transition-delay: 0.44s; opacity: 1; transform: none; }
+    .slide.animate.in-view .week-card:nth-child(5),
+    .slide.animate.in-view .product-card:nth-child(5) { transition-delay: 0.52s; opacity: 1; transform: none; }
+    .slide.animate.in-view .week-card:nth-child(6),
+    .slide.animate.in-view .product-card:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: none; }
+    .slide.animate.in-view .week-card:nth-child(7) { transition-delay: 0.68s; opacity: 1; transform: none; }
+    .slide.animate.in-view .product-card:nth-child(7) { transition-delay: 0.68s; opacity: 1; transform: none; }
+    .slide.animate.in-view .product-card:nth-child(8) { transition-delay: 0.76s; opacity: 1; transform: none; }
+    .slide.animate.in-view .col-card:nth-child(1) { transition-delay: 0.2s; opacity: 1; transform: none; }
+    .slide.animate.in-view .col-card:nth-child(2) { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .slide.animate.in-view .col-card:nth-child(3) { transition-delay: 0.36s; opacity: 1; transform: none; }
+    .slide.animate.in-view .col-card:nth-child(4) { transition-delay: 0.44s; opacity: 1; transform: none; }
+
+    .slide.animate.in-view .tariff-card:nth-child(1) { transition-delay: 0.2s; opacity: 1; transform: none; }
+    .slide.animate.in-view .tariff-card:nth-child(2) { transition-delay: 0.28s; opacity: 1; transform: none; }
+
+    .slide.animate.in-view .check-list li {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .slide.animate.in-view .check-list li:nth-child(1) { transition-delay: 0.2s; opacity: 1; transform: none; }
+    .slide.animate.in-view .check-list li:nth-child(2) { transition-delay: 0.26s; opacity: 1; transform: none; }
+    .slide.animate.in-view .check-list li:nth-child(3) { transition-delay: 0.32s; opacity: 1; transform: none; }
+    .slide.animate.in-view .check-list li:nth-child(4) { transition-delay: 0.38s; opacity: 1; transform: none; }
+    .slide.animate.in-view .check-list li:nth-child(5) { transition-delay: 0.44s; opacity: 1; transform: none; }
+    .slide.animate.in-view .check-list li:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: none; }
+    .slide.animate.in-view .check-list li:nth-child(7) { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .slide.animate.in-view .check-list li:nth-child(8) { transition-delay: 0.62s; opacity: 1; transform: none; }
+
+    @keyframes softGlow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    .slide-hero .badge {
+      animation: softGlow 3s ease-in-out infinite;
+    }
+
+    /* CTA button */
+    .cta-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 229, 160, 0.35);
+    }
+
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .cta-btn.secondary:hover {
+      background: var(--accent-dim);
+    }
+
+    .cta-btn:focus-visible,
+    .carousel-nav-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .cta-link {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      display: inline-block;
+    }
+
+    .cta-link:hover {
+      color: var(--accent);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide.animate,
+      .slide.animate .slide-content > *,
+      .slide.animate.in-view .week-card,
+      .slide.animate.in-view .result-card,
+      .slide.animate.in-view .product-card,
+      .slide.animate.in-view .col-card,
+      .slide.animate.in-view .check-list li {
+        transition: none;
+      }
+      .slide-hero .badge { animation: none; }
+    }
+
+    .hero-cta-wrap {
+      margin-top: 1.5rem;
+    }
+
+    /* Подсказка «листай вниз» под героем */
+    .scroll-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .scroll-hint.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .scroll-hint-arrow {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--accent);
+      animation: scrollHintBounce 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollHintBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(6px); opacity: 0.7; }
+    }
+    @media (max-width: 700px) {
+      .scroll-hint { bottom: 0.75rem; font-size: 0.75rem; }
+    }
+
+    .final-cta-wrap {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .social-proof {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    .examples-list-reveal {
+      max-width: 720px;
+      margin: 1.25rem auto 0;
+      padding: 0.65rem 1rem 0.65rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      transition: box-shadow 0.2s ease, border-left-color 0.2s ease, opacity 0.4s ease 0.45s, transform 0.4s ease 0.45s;
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .slide.animate.in-view .examples-list-reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .examples-list-reveal:hover {
+      border-left-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(0, 229, 160, 0.06);
+    }
+    .vibe-reveal-trigger {
+      background: none;
+      border: 1px dashed var(--text-muted);
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.25s, color 0.25s, opacity 0.25s;
+    }
+    .vibe-reveal-trigger:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .vibe-reveal-block {
+      display: inline-flex;
+      max-width: 90%;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .vibe-reveal-block.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hood-section {
+      max-width: 720px;
+      margin: 2rem auto 0;
+      text-align: center;
+    }
+
+    .hood-trigger {
+      background: none;
+      border: 1px dashed var(--text-muted);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .hood-trigger:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hood-trigger--big {
+      font-size: 1.1rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 14px;
+      border-width: 2px;
+      font-weight: 600;
+    }
+
+    .hood-block {
+      margin-top: 1.5rem;
+      text-align: left;
+      overflow: hidden;
+      animation: hoodOpen 0.45s ease;
+    }
+
+    @keyframes hoodOpen {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hood-code-wrap {
+      background: #0a0a0f;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      max-height: 340px;
+      overflow: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .hood-code-wrap::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .hood-code-wrap::-webkit-scrollbar-thumb {
+      background: rgba(0, 229, 160, 0.2);
+      border-radius: 4px;
+    }
+
+    .hood-code {
+      font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin: 0;
+      white-space: pre;
+    }
+
+    .hood-code-more {
+      display: block;
+      color: var(--accent);
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+    }
+
+    .hood-footer {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1rem 0 0;
+      text-align: center;
+    }
+
+    .examples-list-reveal:has(.vibe-reveal-block.revealed) .vibe-reveal-trigger {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .vibe-reveal-text {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      background: linear-gradient(135deg, rgba(0, 229, 160, 0.2) 0%, rgba(0, 200, 140, 0.15) 100%);
+      border: 1px solid var(--accent-dim);
+      border-radius: 12px;
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(0, 229, 160, 0.15);
+    }
+
+    .brand-footer a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .brand-footer a:hover {
+      color: var(--accent);
+    }
+
+    /* Лоадер при первом заходе */
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .page-loader-text {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    /* Плавающая кнопка CTA */
+    .float-cta {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 50;
+      padding: 0.65rem 1.25rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0, 229, 160, 0.4);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .float-cta.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .float-cta:hover {
+      box-shadow: 0 6px 28px rgba(0, 229, 160, 0.5);
+    }
+
+    /* След за курсором на герое */
+    .cursor-glow {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 229, 160, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cursor-glow.visible {
+      opacity: 1;
+    }
+    #hero { position: relative; z-index: 1; }
+
+    /* Параллакс на герое */
+    .slide-hero .hero-parallax {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .slide-hero .hero-parallax-layer {
+      position: absolute;
+      width: 140%;
+      height: 140%;
+      left: -20%;
+      top: -20%;
+      background: radial-gradient(ellipse 80% 60% at 50% 30%, var(--accent-dim) 0%, transparent 50%);
+      will-change: transform;
+    }
+    .slide-hero .slide-content { position: relative; z-index: 1; }
+
+    /* 3D наклон карточек тарифов */
+    .col-card-tilt {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .col-card-tilt:hover {
+      box-shadow: 0 12px 40px rgba(0, 229, 160, 0.15);
+    }
+
+    /* Конфетти контейнер */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* Модальное окно формы */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      cursor: pointer;
+    }
+    .modal-box {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transition: max-width 0.25s ease;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+    .modal-box.modal-box--iframe {
+      max-width: 520px;
+    }
+    .modal-box.modal-box--embed {
+      max-width: min(720px, 96vw);
+      width: 100%;
+    }
+    #courseModalGetcourseEmbed .course-form input,
+    .modal-getcourse-embed-wrap input[type="text"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .modal-getcourse-embed-wrap input[type="text"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+    .modal-getcourse-embed-wrap .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .modal-getcourse-embed-wrap .form-group--checkbox {
+      margin-top: 1rem;
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+    .modal-getcourse-embed-wrap .form-group--checkbox .form-label-checkbox {
+      display: block !important;
+      writing-mode: horizontal-tb !important;
+      font-weight: 400;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .modal-getcourse-embed-wrap .form-group--checkbox .form-label-checkbox input[type="checkbox"] {
+      display: inline-block !important;
+      width: 1rem;
+      height: 1rem;
+      margin: 0 0.25rem 0 0 !important;
+      vertical-align: middle;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .modal-getcourse-embed-wrap .form-group--checkbox .form-label-checkbox span {
+      display: inline !important;
+      writing-mode: horizontal-tb !important;
+    }
+    .modal-getcourse-embed-wrap .form-hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: color 0.2s, background 0.2s;
+    }
+    .modal-close:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .modal-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .modal-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .course-form .form-group {
+      margin-bottom: 1rem;
+    }
+    .course-form label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .course-form input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .course-form input::placeholder {
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+    .course-form input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+    .form-group--checkbox {
+      margin-top: 0.75rem;
+      margin-bottom: 0;
+    }
+    .form-label-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+    .form-label-checkbox input[type="checkbox"] {
+      width: 1.15rem;
+      height: 1.15rem;
+      margin: 0;
+      flex-shrink: 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .form-label-checkbox a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .form-label-checkbox a:hover {
+      text-decoration: underline;
+    }
+    .form-group--submit {
+      margin-top: 1.25rem;
+      margin-bottom: 0;
+    }
+    .cta-btn--full {
+      width: 100%;
+      margin-top: 0;
+    }
+    .modal-success {
+      text-align: center;
+      padding: 1rem 0;
+    }
+    .modal-success-text {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .modal-iframe-wrap {
+      width: 100%;
+      min-height: 400px;
+      height: 75vh;
+      max-height: 600px;
+    }
+    .modal-iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+    .modal-getcourse-embed-wrap {
+      width: 100%;
+      min-height: 280px;
+      max-width: 100%;
+    }
+    #courseModalGetcourseEmbed,
+    #courseModalGetcourseEmbed .course-form {
+      max-width: 100%;
+    }
+
+    /* Подсказка по клавише ? */
+    .tip-toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      max-width: 90%;
+      width: 320px;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0, 229, 160, 0.2);
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    }
+    .tip-toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .tip-toast:not([hidden]) {
+      display: block;
+    }
+    .tip-toast[hidden] {
+      display: none !important;
+    }
+    .tip-toast-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .tip-toast kbd {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      font-size: 0.8em;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    /* Магнит-эффект для CTA в зоне #final */
+    .final-cta-wrap .cta-btn.cta-magnet {
+      transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+    }
+
+    /* Подвал (как на xbaranova-neiro.ru) */
+    .site-footer {
+      position: relative;
+      z-index: 20;
+      padding: 2rem 5% 2.5rem;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .site-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .site-footer-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .site-footer-links a:hover {
+      color: var(--accent);
+    }
+    .site-footer-legal {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .site-footer-legal p {
+      margin: 0.35rem 0;
+    }
+    .site-footer-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      opacity: 0.85;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-loader" id="pageLoader">
+    <span class="page-loader-text">ВАЙБ-КОДИНГ</span>
+  </div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+  <a href="#final" class="float-cta" id="floatCta">Записаться</a>
+  <div class="tip-toast" id="tipToast" role="status" aria-live="polite" hidden>
+    <p class="tip-toast-text">Нажми <kbd>←</kbd> и <kbd>→</kbd>, чтобы листать слайды. Секрет страницы — в блоке «Примеры».</p>
+  </div>
+
+  <!-- Модальное окно формы «Получить курс» -->
+  <div class="modal-overlay" id="courseModal" aria-hidden="true" role="dialog" aria-labelledby="courseModalTitle" aria-modal="true">
+    <div class="modal-backdrop" id="courseModalBackdrop"></div>
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="courseModalClose" aria-label="Закрыть">&times;</button>
+      <div class="modal-form-wrap" id="courseModalFormWrap">
+      <h2 class="modal-title" id="courseModalTitle">Записаться на курс</h2>
+      <p class="modal-subtitle">Оставьте контакты — мы свяжемся с вами и расскажем о форматах участия.</p>
+      <form class="course-form" id="courseForm" novalidate>
+        <div class="form-group">
+          <label for="courseName">Имя</label>
+          <input type="text" id="courseName" name="name" required placeholder="Как к вам обращаться?" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="courseEmail">Email</label>
+          <input type="email" id="courseEmail" name="email" required placeholder="example@mail.ru" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="coursePhone">Телефон или Telegram</label>
+          <input type="text" id="coursePhone" name="contact" placeholder="+7 или @username" autocomplete="tel">
+        </div>
+        <div class="form-group form-group--submit">
+          <button type="submit" class="cta-btn cta-btn--full">Отправить заявку</button>
+        </div>
+      </form>
+      <div class="modal-success" id="courseModalSuccess" hidden>
+        <p class="modal-success-text">Спасибо! Мы получили заявку и свяжемся с вами в ближайшее время.</p>
+      </div>
+      </div>
+      <div class="modal-iframe-wrap" id="courseModalIframeWrap" style="display: none;" aria-hidden="true">
+        <iframe id="courseModalIframe" title="Заявка на курс в GetCourse"></iframe>
+      </div>
+      <!-- Вставка формы GetCourse (код из виджета): показывается при GETCOURSE_USE_EMBED = true -->
+      <div class="modal-getcourse-embed-wrap" id="courseModalGetcourseEmbedWrap" style="display: none;" aria-hidden="true">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+        <div id="courseModalGetcourseEmbed">
+          <form id="ltForm5055606" class="course-form" data-id="2209793268" action="https://xeniabaranova-school.ru/pl/lite/block-public/process-html?id=2209793268" method="post" target="_blank" data-open-new-window="0" data-sequential-request="1">
+            <input type="hidden" name="formParams[setted_offer_id]">
+            <input type="hidden" name="formParams[willCreatePaidDeal]" value="">
+            <input type="hidden" name="__gc__internal__form__helper" value="">
+            <input type="hidden" name="__gc__internal__form__helper_ref" value="">
+            <div class="form-group"><label for="gc_full_name">Имя</label><input type="text" id="gc_full_name" maxlength="60" placeholder="Введите ваше имя" name="formParams[full_name]" value=""></div>
+            <div class="form-group"><label for="gc_phone">Телефон</label><input type="tel" id="gc_phone" name="formParams[phone]" value="" maxlength="60" placeholder="+7 999 888-77-66" inputmode="tel"><small class="form-hint">В международном формате: +7 999 888-77-66</small></div>
+            <div class="form-group"><label for="gc_email">Email</label><input type="text" id="gc_email" maxlength="60" placeholder="Введите ваш эл. адрес" name="formParams[email]" value=""></div>
+            <div class="form-group form-group--checkbox">
+              <label class="form-label-checkbox">
+                <input type="checkbox" id="gc_consent" name="formParams[consent]" required aria-required="true" value="1">
+                <span>Я согласен на обработку моих персональных данных.<br>С <a href="https://xeniabaranova-school.ru/politica" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a> ознакомлен.</span>
+              </label>
+            </div>
+            <div class="form-group form-group--submit"><button type="submit" id="button3973726" class="cta-btn cta-btn--full" onclick="if(window['btnprs697c7c1b5b1df']){return false;}window['btnprs697c7c1b5b1df']=true;setTimeout(function(){window['btnprs697c7c1b5b1df']=false},6000);return true;">ОТПРАВИТЬ</button></div>
+            <input name="formParams[dealCustomFields][762528]" type="hidden">
+            <input name="formParams[dealCustomFields][762529]" type="hidden">
+            <input name="formParams[dealCustomFields][762530]" type="hidden">
+            <input name="formParams[dealCustomFields][762531]" type="hidden">
+            <input name="formParams[dealCustomFields][762532]" type="hidden">
+            <input type="hidden" id="1554917697c7c1b4eff9" name="__gc__internal__form__helper" class="__gc__internal__form__helper" value="">
+            <input type="hidden" id="1554917697c7c1b4eff9ref" name="__gc__internal__form__helper_ref" class="__gc__internal__form__helper_ref" value="">
+            <input type="hidden" name="requestTime" value="1769765915">
+            <input type="hidden" name="requestSimpleSign" value="27964ebf0aa479312ca7f7ce7fc048a7">
+            <input type="hidden" name="isHtmlWidget" value="1">
+          </form>
+          <span id="gccounterImgContainer"></span>
+          <script>
+            window.addEventListener('load', function(){
+              var loc = document.getElementById("1554917697c7c1b4eff9");
+              if (loc) loc.value = window.location.href;
+              var ref = document.getElementById("1554917697c7c1b4eff9ref");
+              if (ref) ref.value = document.referrer;
+              var statUrl = "https://xeniabaranova-school.ru/stat/counter?ref=" + encodeURIComponent(document.referrer) + "&loc=" + encodeURIComponent(document.location.href);
+              var container = document.getElementById('gccounterImgContainer');
+              if (container) container.innerHTML = "<img width=1 height=1 style='display:none' id='gccounterImg' src='" + statUrl + "'/>";
+            });
+          </script>
+        </div>
+        <script>
+        (function() {
+          if (typeof $ === 'undefined') return;
+          $(function() {
+            var phoneInput = document.getElementById('gc_phone');
+            if (phoneInput) phoneInput.setAttribute('inputmode', 'tel');
+          });
+        })();
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-dots" aria-hidden="true">
+    <a href="#hero" class="active" title="Титул"></a>
+    <a href="#goal" title="Что даст курс"></a>
+    <a href="#for-who" title="Для кого"></a>
+    <a href="#what-is" title="Новая программа"></a>
+    <a href="#examples" title="Примеры"></a>
+    <a href="#results" title="Результат курса"></a>
+    <a href="#program" title="Программа"></a>
+    <a href="#special" title="Особенности"></a>
+    <a href="#format" title="Форматы участия"></a>
+    <a href="#format" title="Тарифы"></a>
+    <a href="#hood" title="Капот"></a>
+    <a href="#final" title="Вопросы"></a>
+  </nav>
+
+  <section class="slide slide-hero animate" id="hero">
+    <div class="hero-parallax" aria-hidden="true">
+      <div class="hero-parallax-layer" id="heroParallaxLayer"></div>
+    </div>
+    <div class="slide-content">
+      <div class="hero-text" style="max-width: 720px; margin: 0 auto;">
+        <div class="badge">Онлайн-курс · <span class="count-up" data-count="5" data-suffix=" недель">0</span> · Старт 17 марта</div>
+        <h1 class="slide-title hero-title-tw">
+          <span class="hero-title-measure" aria-hidden="true">ВАЙБ-КОДИНГ: <span class="accent">С 0 ДО PRO</span></span>
+          <span class="hero-title-visible"><span class="hero-title-typed"></span><span class="hero-title-cursor" aria-hidden="true">|</span></span>
+        </h1>
+        <p class="slide-subtitle">Как создавать сайты, подключать ИИ-агентов, GPT-ассистентов и ботов, автоматизировать процессы, контент и продажи без классического программирования и сложного кода.</p>
+        <p class="slide-body" style="color: var(--text); margin-top: 1rem;">Даже если вы не IT'шник. Или короче: без программирования и боли.</p>
+        <div class="hero-cta-wrap">
+          <a href="#final" class="cta-btn">Записаться на курс</a>
+        </div>
+        <div class="hero-game" id="heroGame">
+          <h2 class="hero-game-intro">Сыграем?</h2>
+          <p>Эта страница с игрой — самый простой пример того, что можно сделать на курсе. Листай ниже — там программа, тарифы и как записаться.</p>
+          <p><strong>Стрелки</strong> — влево/вправо/вниз, <strong>вверх</strong> — поворот. На телефоне — кнопки ниже или свайп.</p>
+          <div class="hero-game-row">
+            <div class="hero-game-main">
+              <div class="hero-game-wrap" id="gameWrap" tabindex="0" aria-label="Игра Тетрис">
+                <canvas class="tetris-canvas" id="tetrisCanvas" width="116" height="252"></canvas>
+                <div class="tetris-over" id="tetrisOver">Игра окончена</div>
+              </div>
+              <div class="tetris-controls" id="tetrisControls" aria-label="Управление">
+                <button type="button" class="tetris-btn tetris-btn-rotate" id="tetrisBtnRotate" title="Поворот">↻</button>
+                <div class="tetris-controls-row">
+                  <button type="button" class="tetris-btn tetris-btn-left" id="tetrisBtnLeft" title="Влево">←</button>
+                  <button type="button" class="tetris-btn tetris-btn-down" id="tetrisBtnDown" title="Вниз">↓</button>
+                  <button type="button" class="tetris-btn tetris-btn-right" id="tetrisBtnRight" title="Вправо">→</button>
+                </div>
+              </div>
+              <p class="hero-game-score">Счёт: <strong id="gameScore">0</strong></p>
+              <p class="hero-game-result" id="gameResult">Листай ниже — там программа курса и как записаться ☺️</p>
+              <button type="button" class="game-btn" id="gameRestart">Новая игра</button>
+            </div>
+            <div class="hero-game-callout" aria-hidden="true">
+              <p class="hero-game-callout-text">Как такое сделать? Подробности ниже ↓</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint" id="scrollHint" aria-hidden="true">
+        <span class="scroll-hint-text">Листай вниз</span>
+        <span class="scroll-hint-arrow">↓</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide animate" id="goal">
+    <div class="slide-content">
+      <div class="badge">Результат</div>
+      <h2 class="slide-title">Что даст вам курс</h2>
+      <ul class="check-list" style="max-width: 640px; margin: 0 auto;">
+        <li><strong>01</strong> Понимание, как работают сайты и интернет (от браузера и сервера до кода — простым языком)</li>
+        <li><strong>02</strong> Навык создавать веб-страницы с нуля (HTML и CSS, первая страница и мини-проект)</li>
+        <li><strong>03</strong> Опыт создания онлайн-сервисов без классического программирования (no-code и вайб-кодинг на lovable.dev)</li>
+        <li><strong>04</strong> Умение публиковать и показывать свои проекты (GitHub, публичные ссылки, демонстрация работ)</li>
+        <li><strong>05</strong> Понимание, как «оживлять» сайты (JavaScript, интерактив, логика, работа с ошибками)</li>
+      </ul>
+      <p class="cta-line">Инструменты для работы, жизни и дохода — за 5 недель.</p>
+    </div>
+  </section>
+
+  <section class="slide animate" id="for-who">
+    <div class="slide-content">
+      <div class="badge">Аудитория</div>
+      <h2 class="slide-title">Для кого этот курс</h2>
+      <ul class="check-list" style="max-width: 620px; margin: 0 auto;">
+        <li><strong>Новичков</strong>, которые боятся кода, но хотят зарабатывать на ИИ (программирование кажется сложным и «не для меня»)</li>
+        <li><strong>Экспертов, фрилансеров, предпринимателей</strong> — нужно быстрее запускать сайты, сервисы, MVP и автоматизировать процессы</li>
+        <li><strong>Маркетологов, SMM, продюсеров, контент-специалистов</strong> — хотят использовать ИИ как рабочий инструмент, а не игрушку</li>
+        <li><strong>Всех, кто хочет создавать ИИ-инструменты, сайты и сервисы</strong>, а не просто «играть с ChatGPT»</li>
+      </ul>
+      <p class="cta-line">Если вы не программист — это нормально. Так и задумано: курс для людей, а не для разработчиков.</p>
+    </div>
+  </section>
+
+  <section class="slide animate" id="what-is">
+    <canvas id="what-is-fireworks" aria-hidden="true"></canvas>
+    <div class="slide-content">
+      <div class="badge">Программа</div>
+      <h2 class="slide-title">Абсолютно <span class="accent-word">новая</span> программа</h2>
+      <p class="slide-subtitle slide-subtitle-bright">Для выпускников школы и новичков</p>
+      <p class="slide-body" style="text-align: center; font-size: 1.15rem; color: var(--text);">Вайб-кодинг — это новый способ создавать цифровые продукты без классического программирования.</p>
+    </div>
+  </section>
+
+  <section class="slide animate" id="examples">
+    <div class="slide-content">
+      <div class="badge">Примеры</div>
+      <h2 class="slide-title">Что можно сделать на вайб-кодинге</h2>
+      <p class="slide-subtitle">Примеры продуктов, которые ты соберёшь на курсе</p>
+      <ul class="examples-list">
+        <li><strong>Лендинг или визитка</strong> — одностраничный сайт о себе, проекте или услуге. Первый результат за неделю.</li>
+        <li><strong>Сервис с формами</strong> — сбор заявок, опросы, мини-калькуляторы. Без кода, в удобном конструкторе.</li>
+        <li><strong>Первый сайт и страница</strong> — своя веб-страница. Цвета, шрифты, структура — с подсказками ИИ.</li>
+        <li><strong>Простой сервис или бот</strong> — от идеи до готового решения. ИИ помогает с логикой и интерфейсом.</li>
+        <li><strong>Портфолио или блог</strong> — проекты, контакты, ссылки. Удобно показывать работодателям или клиентам.</li>
+        <li><strong>Сайт проекта или команды</strong> — презентация продукта или команды. Уже через несколько недель.</li>
+        <li><strong>Страница с кнопками и формами</strong> — реакции на действия пользователя. Всё по шагам с подсказками ИИ.</li>
+        <li><strong>Идея для стартапа</strong> — от «хочу сделать» до готового решения. С нуля, с поддержкой.</li>
+      </ul>
+      <div class="examples-list-reveal">
+        <button type="button" class="vibe-reveal-trigger" id="vibeRevealBtn" aria-expanded="false" aria-controls="vibeRevealBlock">Секрет этой страницы</button>
+        <span class="vibe-reveal-block" id="vibeRevealBlock" role="region" aria-live="polite" hidden>
+          <span class="vibe-reveal-text">Этот сайт сделан за 30 минут при помощи вайб-кодинга</span>
+        </span>
+      </div>
+      <p class="examples-list-footer">И многое другое — всё зависит от твоей фантазии.</p>
+    </div>
+  </section>
+
+  <section class="slide animate" id="results">
+    <div class="slide-content">
+      <div class="badge">Итог</div>
+      <h2 class="slide-title">Результат курса</h2>
+      <p class="slide-subtitle">После прохождения курса вы:</p>
+      <ul class="check-list" style="max-width: 620px; margin: 0 auto;">
+        <li>понимаете, как работает интернет и сайты (браузер, сервер, код — без технической перегрузки)</li>
+        <li>умеете создавать веб-страницы с нуля (HTML, CSS, структура и стили)</li>
+        <li>создали собственную веб-страницу и онлайн-сервис (мини-проект + проект на lovable.dev)</li>
+        <li>понимаете основы работы с GitHub (публикация проектов и публичные ссылки)</li>
+        <li>разобрались, как работает интерактив на сайтах (JavaScript, события, реакции, ошибки)</li>
+        <li>имеете готовый итоговый проект (сайт или сервис, собранный и опубликованный)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide animate" id="program">
+    <div class="slide-content">
+      <div class="badge">Программа</div>
+      <h2 class="slide-title">Программа курса</h2>
+      <p class="slide-subtitle">Модули, уроки и результат — листай вниз</p>
+      <div class="program-scroll-wrap">
+      <div class="program-scroll">
+        <div class="program-module program-card">
+          <span class="program-module-num">01</span>
+          <span class="week-num">Вводный модуль</span>
+          <p class="program-module-result"><strong>Результат модуля:</strong> ознакомились с правилами и условиями обучения, поставили цели на курс. Понимаете, зачем вы здесь и что у вас получится.</p>
+          <p class="program-lessons-title">Уроки:</p>
+          <ul class="program-lessons">
+            <li>Правила и условия обучения на курсе</li>
+            <li>Подтверждающий документ</li>
+            <li>Урок 1. Вайб‑кодинг и новая реальность</li>
+            <li>Оформление подписок</li>
+          </ul>
+        </div>
+        <div class="program-module program-card">
+          <span class="program-module-num">02</span>
+          <span class="week-num">Модуль 1. Вход в цифровую среду и инструменты</span>
+          <p class="program-module-result"><strong>Результат модуля:</strong> уверенно ориентируетесь в компьютере и среде разработчика, не теряетесь в интерфейсах и понимаете, где происходит магия.</p>
+          <p class="program-lessons-title">Уроки:</p>
+          <ul class="program-lessons">
+            <li>Урок 1. Как работает компьютер и интернет</li>
+            <li>Урок 2. Подготовка среды (VPN, Cursor, интерфейс, ИИ)</li>
+            <li>Урок 3. Браузер как инструмент разработчика (DevTools, консоль)</li>
+          </ul>
+        </div>
+        <div class="program-module program-card">
+          <span class="program-module-num">03</span>
+          <span class="week-num">Модуль 2. GitHub и мышление разработчика</span>
+          <p class="program-module-result"><strong>Результат модуля:</strong> умеете хранить и показывать свои проекты, публиковать их в GitHub.</p>
+          <p class="program-lessons-title">Уроки:</p>
+          <ul class="program-lessons">
+            <li>Урок 1. Что такое GitHub и зачем он</li>
+            <li>Урок 2. Работа с репозиториями (создание, загрузка файлов, коммиты)</li>
+            <li>Урок 3. Практика: загрузка проекта (HTML), публичная ссылка</li>
+          </ul>
+        </div>
+        <div class="program-module program-card">
+          <span class="program-module-num">04</span>
+          <span class="week-num">Модуль 3. Первый код и первый результат</span>
+          <p class="program-module-result"><strong>Результат модуля:</strong> знаете, что код — это просто инструкции; создали свою первую веб‑страницу.</p>
+          <p class="program-lessons-title">Уроки:</p>
+          <ul class="program-lessons">
+            <li>Урок 1. Что такое HTML (логика, структура, первая страница в Cursor)</li>
+            <li>Урок 2. CSS — красота и стиль (цвета, шрифты, отступы, практика)</li>
+            <li>Урок 3. Мини‑проект (личная страница / визитка, ИИ, ошибки и безопасность)</li>
+          </ul>
+        </div>
+        <div class="program-module program-card">
+          <span class="program-module-num">05</span>
+          <span class="week-num">Модуль 4. Вайб‑кодинг и no‑code (lovable.dev)</span>
+          <p class="program-module-result"><strong>Результат модуля:</strong> создаёте сервисы без классического кода. Готовый онлайн‑сервис по ссылке.</p>
+          <p class="program-lessons-title">Уроки:</p>
+          <ul class="program-lessons">
+            <li>Урок 1. Знакомство с lovable.dev (регистрация, интерфейс, примеры)</li>
+            <li>Урок 2. Создание сервиса (формы, кнопки, поля, логика, связка с ИИ)</li>
+            <li>Урок 3. Публикация и тестирование (публикация, проверка на устройствах, GitHub, домен)</li>
+          </ul>
+        </div>
+        <div class="program-module program-card program-module--pro-only">
+          <span class="program-module-num">06</span>
+          <span class="program-module-pro-badge">Только тариф PRO</span>
+          <span class="week-num">Модуль 5. Аналоги сервисов для вайб‑кодинга</span>
+          <p class="program-lessons-title">Уроки:</p>
+          <ul class="program-lessons">
+            <li>Урок 1. Аналоги Cursor</li>
+            <li>Урок 2. Аналоги lovable</li>
+          </ul>
+        </div>
+        <div class="program-module program-card program-module--practice">
+          <span class="program-module-num">07</span>
+          <span class="week-num">Практика: Итоговый проект</span>
+          <p class="program-module-result"><strong>Результат:</strong> закрепили навыки создания, улучшения и оформления; создали полноценный финальный проект (идея, формат, реализация с ИИ, публикация в GitHub, демонстрация, обратная связь).</p>
+          <ul class="program-lessons">
+            <li>Создание и презентация финального проекта</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide animate" id="special">
+    <div class="slide-content">
+      <div class="badge">Почему мы</div>
+      <h2 class="slide-title">Что делает курс особенным</h2>
+      <ul class="special-features">
+        <li class="special-feature">
+          <span class="special-feature-icon" aria-hidden="true">✓</span>
+          <span class="special-feature-text">Делаете проекты, а не конспекты — учитесь в деле</span>
+        </li>
+        <li class="special-feature">
+          <span class="special-feature-icon" aria-hidden="true">→</span>
+          <span class="special-feature-text">Старт с нуля — опыт в программировании не нужен</span>
+        </li>
+        <li class="special-feature">
+          <span class="special-feature-icon" aria-hidden="true">·</span>
+          <span class="special-feature-text">Только то, что пригодится — без лишней теории</span>
+        </li>
+        <li class="special-feature">
+          <span class="special-feature-icon" aria-hidden="true">AI</span>
+          <span class="special-feature-text">ИИ подсказывает и дописывает — вы не один на один с кодом</span>
+        </li>
+        <li class="special-feature">
+          <span class="special-feature-icon" aria-hidden="true">⚡</span>
+          <span class="special-feature-text">Свой сайт или сервис — уже в первые недели курса</span>
+        </li>
+      </ul>
+      <p class="special-tagline">Мы не учим «программировать». Учим <strong>доводить идею до работающего продукта</strong> — с ИИ и без страха перед кодом.</p>
+    </div>
+  </section>
+
+  <section class="slide animate" id="format">
+    <div class="slide-content">
+      <div class="badge">Участие</div>
+      <h2 class="slide-title">Тарифы</h2>
+      <p class="slide-subtitle">Два формата — выберите под свой запрос. Курс 5 недель, старт 17 марта.</p>
+      <div class="tariff-cols">
+        <div class="tariff-card" data-tilt>
+          <h3 class="tariff-name">Start</h3>
+          <ul class="tariff-list tariff-list--modules">
+            <li><strong>Вводный модуль</strong> — правила, цели, вайб‑кодинг и новая реальность</li>
+            <li><strong>Модуль 1.</strong> Вход в цифровую среду и инструменты</li>
+            <li><strong>Модуль 2.</strong> GitHub и мышление разработчика</li>
+            <li><strong>Модуль 3.</strong> Первый код и первый результат</li>
+            <li><strong>Модуль 4.</strong> Вайб‑кодинг и no‑code (lovable.dev)</li>
+            <li><strong>Практика:</strong> итоговый проект</li>
+          </ul>
+          <ul class="tariff-extras">
+            <li>Закрытый Telegram-чат с поддержкой</li>
+            <li>Оплата аккаунтов в нейросетях</li>
+            <li>Проверка домашних заданий</li>
+          </ul>
+          <div class="tariff-price-block">
+            <div class="tariff-price-item">
+              <span class="tariff-price-num">49 900 ₽</span>
+              <span class="tariff-price-caption">при оплате сразу или в ЯСПЛИТ на 4 части</span>
+            </div>
+            <div class="tariff-price-item">
+              <span class="tariff-price-num">54 900 ₽</span>
+              <span class="tariff-price-caption">в рассрочку до 12 мес от 4 575 ₽/мес</span>
+            </div>
+          </div>
+          <div class="tariff-btn-wrap">
+            <a href="#final" class="cta-btn cta-btn--small">Узнать условия</a>
+          </div>
+        </div>
+        <div class="tariff-card tariff-card--pro" data-tilt>
+          <span class="tariff-badge">Расширенный</span>
+          <h3 class="tariff-name">PRO</h3>
+          <ul class="tariff-list tariff-list--modules">
+            <li><strong>Вводный модуль</strong> — правила, цели, вайб‑кодинг и новая реальность</li>
+            <li><strong>Модуль 1.</strong> Вход в цифровую среду и инструменты</li>
+            <li><strong>Модуль 2.</strong> GitHub и мышление разработчика</li>
+            <li><strong>Модуль 3.</strong> Первый код и первый результат</li>
+            <li><strong>Модуль 4.</strong> Вайб‑кодинг и no‑code (lovable.dev)</li>
+            <li><strong>Модуль 5.</strong> Аналоги сервисов для вайб‑кодинга</li>
+            <li><strong>Практика:</strong> итоговый проект</li>
+            <li class="tariff-list-plus"><strong>+</strong> Подключение ИИ-моделей и интеграция с GitHub в Cursor</li>
+            <li class="tariff-list-plus"><strong>+</strong> Портфолио и монетизация</li>
+            <li class="tariff-list-plus"><strong>+</strong> Подключение бота к личному аккаунту в Telegram</li>
+          </ul>
+          <ul class="tariff-extras">
+            <li>Закрытый Telegram-чат с поддержкой</li>
+            <li>Оплата аккаунтов в нейросетях</li>
+            <li>Проверка домашних заданий</li>
+            <li>ZOOM-встречи с экспертами</li>
+            <li>Готовые шаблоны и инструкции</li>
+            <li>Электронный и бумажный сертификат о прохождении курса</li>
+          </ul>
+          <div class="tariff-price-block">
+            <div class="tariff-price-item">
+              <span class="tariff-price-num">54 900 ₽</span>
+              <span class="tariff-price-caption">при оплате сразу или в ЯСПЛИТ на 4 части</span>
+            </div>
+            <div class="tariff-price-item">
+              <span class="tariff-price-num">59 900 ₽</span>
+              <span class="tariff-price-caption">в рассрочку до 12 мес от 4 992 ₽/мес</span>
+            </div>
+          </div>
+          <div class="tariff-btn-wrap">
+            <a href="#final" class="cta-btn cta-btn--small">Узнать условия</a>
+          </div>
+        </div>
+      </div>
+      <div class="tariff-alumni-note">
+        <p class="tariff-alumni-note-text">Эти цены и условия — <strong>только для наших выпускников</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide animate" id="hood">
+    <div class="slide-content">
+      <div class="badge">Капот</div>
+      <h2 class="slide-title">Загляни под капот</h2>
+      <p class="slide-subtitle">Вот что на самом деле «под обложкой» этой страницы. Такое сами бы не написали — с вайб-кодингом за 30 минут.</p>
+      <div class="hood-section">
+        <button type="button" class="hood-trigger hood-trigger--big" id="hoodBtn" aria-expanded="false" aria-controls="hoodBlock">Открыть капот</button>
+        <div class="hood-block" id="hoodBlock" role="region" hidden>
+          <div class="hood-code-wrap">
+            <pre class="hood-code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Вайб-кодинг: с 0 до PRO&lt;/title&gt;
+  &lt;style&gt;
+    :root { --bg: #0a0a0f; --accent: #00e5a0; }
+    body { font-family: 'Manrope'; background: var(--bg); }
+    .slide { min-height: 100vh; padding: 4rem 5%; }
+    .slide-title { font-size: clamp(2rem, 5vw, 3.5rem); }
+    .cta-btn { background: var(--accent); border-radius: 100px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;section class="slide"&gt;
+    &lt;h1 class="slide-title"&gt;ВАЙБ-КОДИНГ&lt;/h1&gt;
+    &lt;p&gt;Курс 5 недель. Старт 17 марта.&lt;/p&gt;
+    &lt;a href="#final" class="cta-btn"&gt;Записаться&lt;/a&gt;
+  &lt;/section&gt;
+  &lt;section class="slide" id="program"&gt;
+    &lt;h2&gt;Программа курса&lt;/h2&gt;
+    &lt;div class="program-scroll"&gt;... 7 модулей ...&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;script&gt;
+    document.querySelectorAll('a[href="#final"]').forEach(...);
+    // Тетрис: фигуры, вращение, счёт, конец игры
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+<span class="hood-code-more">... и ещё больше 2500 строк кода этой страницы</span></code></pre>
+          </div>
+          <p class="hood-footer">С вайб-кодингом вам не нужны знания кода — всё делается за вас.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-final animate" id="final">
+    <div class="slide-content">
+      <h2 class="slide-title">Остались вопросы?</h2>
+      <p class="slide-subtitle">Напишите нам — поможем выбрать формат и ответим на вопросы.</p>
+      <div class="final-cta-wrap">
+        <a href="#final" class="cta-btn" id="cta-main" data-cta="main">Записаться на курс</a>
+      </div>
+      <p class="social-proof">Школа нейросетей и SMM Ксении Барановой</p>
+      <div class="badge" style="margin-top: 2rem;">ВАЙБ-КОДИНГ: С 0 ДО PRO</div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer-links">
+      <a href="https://xeniabaranova-school.ru/oferta_new" target="_blank" rel="noopener noreferrer" class="site-footer-link">Публичная оферта</a>
+      <a href="https://xeniabaranova-school.ru/politica" target="_blank" rel="noopener noreferrer" class="site-footer-link">Политика конфиденциальности</a>
+    </div>
+    <div class="site-footer-legal">
+      <p>ИП Баранова Ксения Николаевна</p>
+      <p>ИНН 027402381827</p>
+      <p>ОГРНИП 317028000116318</p>
+    </div>
+    <p class="site-footer-note">Инстаграм* — признан экстремистской соцсетью и запрещен на территории РФ</p>
+    <div class="site-footer-legal" style="margin-top: 1rem;">
+      <p>Школа лицензирована Министерством образования и науки</p>
+      <p>Регистрационный номер лицензии № Л035-01198-02/00172850</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Highlight active nav dot on scroll
+    const sections = document.querySelectorAll('.slide');
+    const navLinks = document.querySelectorAll('.nav-dots a');
+
+    const totalSlidesEl = document.getElementById('totalSlides');
+    const currentSlideEl = document.getElementById('currentSlide');
+    if (totalSlidesEl) totalSlidesEl.textContent = sections.length;
+
+    function setActive() {
+      const scrollY = window.scrollY;
+      sections.forEach((section, i) => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollY >= top - height / 3 && scrollY < top + height - height / 3) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          if (navLinks[i]) navLinks[i].classList.add('active');
+          if (currentSlideEl) currentSlideEl.textContent = i + 1;
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActive);
+    setActive();
+
+    // Кнопки «Записаться» — куда ведём
+    window.GETCOURSE_APPLICATION_URL = 'https://xeniabaranova-school.ru/application_vibe_cod';
+    window.GETCOURSE_WIDGET_IFRAME_URL = '';
+    window.GETCOURSE_IN_MODAL = false; // true = форма в модалке (iframe), false = открывать в новой вкладке
+    window.GETCOURSE_USE_EMBED = true; // true = в модалке показывается вставка формы GetCourse (код виджета в #courseModalGetcourseEmbed)
+    window.COURSE_FORM_ENDPOINT = '';
+
+    (function() {
+      var modal = document.getElementById('courseModal');
+      var backdrop = document.getElementById('courseModalBackdrop');
+      var closeBtn = document.getElementById('courseModalClose');
+      var formWrap = document.getElementById('courseModalFormWrap');
+      var iframeWrap = document.getElementById('courseModalIframeWrap');
+      var iframe = document.getElementById('courseModalIframe');
+      var form = document.getElementById('courseForm');
+      var successEl = document.getElementById('courseModalSuccess');
+      var endpoint = window.COURSE_FORM_ENDPOINT || '';
+      var getcourseUrl = window.GETCOURSE_APPLICATION_URL || '';
+      var widgetIframeUrl = window.GETCOURSE_WIDGET_IFRAME_URL || '';
+      var getcourseInModal = window.GETCOURSE_IN_MODAL && getcourseUrl;
+      var getcourseUseEmbed = window.GETCOURSE_USE_EMBED && document.getElementById('courseModalGetcourseEmbedWrap');
+
+      var embedWrap = document.getElementById('courseModalGetcourseEmbedWrap');
+      var modalBox = modal ? modal.querySelector('.modal-box') : null;
+      function openModal() {
+        if (getcourseUseEmbed && embedWrap) {
+          embedWrap.style.display = 'block';
+          embedWrap.setAttribute('aria-hidden', 'false');
+          if (formWrap) formWrap.style.display = 'none';
+          if (iframeWrap) { iframeWrap.style.display = 'none'; if (iframe) iframe.src = 'about:blank'; }
+          if (modalBox) { modalBox.classList.add('modal-box--embed'); modalBox.classList.remove('modal-box--iframe'); }
+        } else if (getcourseInModal && iframeWrap && iframe) {
+          iframeWrap.style.display = 'block';
+          iframeWrap.setAttribute('aria-hidden', 'false');
+          iframe.src = widgetIframeUrl || getcourseUrl;
+          if (formWrap) formWrap.style.display = 'none';
+          if (embedWrap) embedWrap.style.display = 'none';
+          if (modalBox) modalBox.classList.add('modal-box--iframe');
+        } else {
+          if (formWrap) formWrap.style.display = '';
+          if (form) form.hidden = false;
+          if (successEl) successEl.hidden = true;
+          if (iframeWrap) { iframeWrap.style.display = 'none'; if (iframe) iframe.src = 'about:blank'; }
+          if (embedWrap) embedWrap.style.display = 'none';
+          if (modalBox) { modalBox.classList.remove('modal-box--iframe'); modalBox.classList.remove('modal-box--embed'); }
+        }
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (iframeWrap) { iframeWrap.style.display = 'none'; if (iframe) iframe.src = 'about:blank'; }
+        if (embedWrap) embedWrap.style.display = 'none';
+        if (formWrap) formWrap.style.display = '';
+        if (modalBox) { modalBox.classList.remove('modal-box--iframe'); modalBox.classList.remove('modal-box--embed'); }
+      }
+
+      document.querySelectorAll('a[href="#final"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (getcourseUrl && !getcourseInModal && !getcourseUseEmbed) {
+            window.open(getcourseUrl, '_blank', 'noopener,noreferrer');
+            return;
+          }
+          openModal();
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (backdrop) backdrop.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!form.checkValidity()) return;
+        var nameEl = form.querySelector('#courseName');
+        var emailEl = form.querySelector('#courseEmail');
+        var phoneEl = form.querySelector('#coursePhone');
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var payload = {
+          name: nameEl ? nameEl.value.trim() : '',
+          email: emailEl ? emailEl.value.trim() : '',
+          contact: phoneEl ? phoneEl.value.trim() : ''
+        };
+        function showSuccess() {
+          form.hidden = true;
+          if (successEl) successEl.hidden = false;
+          setTimeout(closeModal, 2500);
+        }
+        if (endpoint && endpoint.length > 0) {
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Отправка…'; }
+          fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).then(function() { showSuccess(); }).catch(function() { showSuccess(); }).finally(function() {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Отправить заявку'; }
+          });
+        } else {
+          showSuccess();
+        }
+      });
+    })();
+
+    // Форма GetCourse: без галочки согласия не отправлять
+    (function() {
+      var gcForm = document.getElementById('ltForm5055606');
+      var gcConsent = document.getElementById('gc_consent');
+      if (!gcForm || !gcConsent) return;
+      gcForm.addEventListener('submit', function(e) {
+        if (!gcConsent.checked) {
+          e.preventDefault();
+          gcConsent.focus();
+        }
+      });
+    })();
+
+    // Навигация с клавиатуры: ← и → переключают слайды (но не когда игра Тетрис на экране)
+    document.addEventListener('keydown', function(e) {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      var hero = document.getElementById('hero');
+      if (hero) {
+        var rect = hero.getBoundingClientRect();
+        if (rect.top >= -100 && rect.bottom <= window.innerHeight + 100) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+      }
+      const scrollY = window.scrollY;
+      let currentIndex = 0;
+      sections.forEach((section, i) => {
+        if (section.offsetTop <= scrollY + 100) currentIndex = i;
+      });
+      if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (e.key === 'ArrowRight' && currentIndex < sections.length - 1) {
+        sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    // Анимации при появлении слайда в зоне видимости
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.12 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.slide.animate').forEach(slide => observer.observe(slide));
+
+    // Ссылки в подвале — гарантированно открываются (в т.ч. если что-то перехватывает клик)
+    document.querySelectorAll('.site-footer-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href && href.indexOf('http') === 0) {
+          window.open(href, '_blank', 'noopener,noreferrer');
+          e.preventDefault();
+        }
+      });
+    });
+
+    // Подсказка «листай вниз» — скрывать после первого скролла
+    (function() {
+      var hint = document.getElementById('scrollHint');
+      if (!hint) return;
+      var scrollTimeout;
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 80) hint.classList.add('hidden');
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          if (window.scrollY <= 80) hint.classList.remove('hidden');
+        }, 150);
+      }, { passive: true });
+    })();
+
+    // Секретная клавиша ? — показать подсказку
+    (function() {
+      var toast = document.getElementById('tipToast');
+      if (!toast) return;
+      document.addEventListener('keydown', function(e) {
+        if (e.key !== '?' || e.ctrlKey || e.metaKey || e.altKey) return;
+        var active = document.activeElement;
+        if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
+        e.preventDefault();
+        toast.hidden = false;
+        toast.classList.add('show');
+        setTimeout(function() {
+          toast.classList.remove('show');
+          setTimeout(function() { toast.hidden = true; }, 300);
+        }, 4000);
+      });
+    })();
+
+    // Магнит-эффект для главной CTA, когда блок #final в зоне видимости
+    (function() {
+      var finalSection = document.getElementById('final');
+      var cta = document.getElementById('cta-main');
+      if (!finalSection || !cta) return;
+      var finalWrap = cta.closest('.final-cta-wrap');
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            cta.classList.add('cta-magnet');
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseleave', onMouseLeave);
+          } else {
+            cta.classList.remove('cta-magnet');
+            cta.style.transform = '';
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseleave', onMouseLeave);
+          }
+        });
+      }, { threshold: 0.2 });
+      io.observe(finalSection);
+      function onMouseMove(e) {
+        var rect = cta.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var dx = (e.clientX - cx) * 0.12;
+        var dy = (e.clientY - cy) * 0.12;
+        dx = Math.max(-8, Math.min(8, dx));
+        dy = Math.max(-8, Math.min(8, dy));
+        cta.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+      }
+      function onMouseLeave() {
+        cta.style.transform = '';
+      }
+    })();
+
+    // Мини-конфетти при клике на «Записаться»
+    (function() {
+      document.querySelectorAll('a[href="#final"]').forEach(function(a) {
+        a.addEventListener('click', function() {
+          if (typeof window.runConfetti === 'function') window.runConfetti();
+        });
+      });
+    })();
+
+    // Мини-игра на титуле: Тетрис
+    (function() {
+      const canvas = document.getElementById('tetrisCanvas');
+      const overEl = document.getElementById('tetrisOver');
+      const scoreEl = document.getElementById('gameScore');
+      const resultEl = document.getElementById('gameResult');
+      const restartBtn = document.getElementById('gameRestart');
+      const wrapEl = document.getElementById('gameWrap');
+      if (!canvas || !scoreEl) return;
+
+      const COLS = 10;
+      const ROWS = 18;
+      const PAD = 2;
+      const confettiAtScore = 500;
+      const CELL_W = 10;
+      const CELL_H = 12;
+
+      const SHAPES = [
+        [[1,1,1,1]],           /* I */
+        [[1,1],[1,1]],         /* O */
+        [[0,1,0],[1,1,1]],     /* T */
+        [[1,0,0],[1,1,1]],     /* L */
+        [[0,0,1],[1,1,1]],     /* J */
+        [[1,1,0],[0,1,1]],     /* S */
+        [[0,1,1],[1,1,0]]      /* Z */
+      ];
+
+      /* Цвет по форме: I циан, O жёлтый, T фиолетовый, L оранжевый, J синий, S зелёный, Z красный */
+      const COLORS = [
+        '#00d4ff', /* I - циан */
+        '#f7dc00', /* O - жёлтый */
+        '#b366ff', /* T - фиолетовый */
+        '#ff9500', /* L - оранжевый */
+        '#0066ff', /* J - синий */
+        '#00e5a0', /* S - зелёный */
+        '#ff3b30'  /* Z - красный */
+      ];
+
+      let ctx = canvas.getContext('2d');
+      let board = [];
+      let piece = null;
+      let pieceCol = 0;
+      let pieceRow = 0;
+      let pieceShape = null;
+      let pieceColor = 0;
+      let score = 0;
+      let confettiShown = false;
+      let gameOver = false;
+      let dropInterval = 800;
+      let lastDrop = 0;
+      let animId = 0;
+
+      function initBoard() {
+        board = [];
+        for (let r = 0; r < ROWS; r++) {
+          board.push(Array(COLS).fill(0));
+        }
+      }
+
+      function spawnPiece() {
+        const type = Math.floor(Math.random() * SHAPES.length);
+        pieceShape = SHAPES[type].map(row => [...row]);
+        pieceColor = type + 1;
+        pieceCol = Math.floor((COLS - pieceShape[0].length) / 2);
+        pieceRow = 0;
+        if (collides(pieceRow, pieceCol, pieceShape)) {
+          gameOver = true;
+          if (overEl) overEl.classList.add('show');
+          return;
+        }
+      }
+
+      function collides(r, c, shape) {
+        for (let y = 0; y < shape.length; y++) {
+          for (let x = 0; x < shape[y].length; x++) {
+            if (!shape[y][x]) continue;
+            const nr = r + y;
+            const nc = c + x;
+            if (nc < 0 || nc >= COLS || nr >= ROWS) return true;
+            if (nr >= 0 && board[nr][nc]) return true;
+          }
+        }
+        return false;
+      }
+
+      function merge() {
+        for (let y = 0; y < pieceShape.length; y++) {
+          for (let x = 0; x < pieceShape[y].length; x++) {
+            if (!pieceShape[y][x]) continue;
+            const r = pieceRow + y;
+            const c = pieceCol + x;
+            if (r >= 0 && r < ROWS && c >= 0 && c < COLS) board[r][c] = pieceColor;
+          }
+        }
+      }
+
+      function clearLines() {
+        let cleared = 0;
+        for (let r = ROWS - 1; r >= 0; r--) {
+          if (board[r].every(cell => cell > 0)) {
+            board.splice(r, 1);
+            board.unshift(Array(COLS).fill(0));
+            cleared++;
+            r++;
+          }
+        }
+        if (cleared > 0) {
+          const add = [0, 100, 300, 500, 800][Math.min(cleared, 4)];
+          score += add;
+          if (scoreEl) scoreEl.textContent = score;
+          if (score >= confettiAtScore && !confettiShown) {
+            confettiShown = true;
+            if (typeof window.runConfetti === 'function') window.runConfetti();
+            if (resultEl) resultEl.classList.add('show');
+          }
+        }
+      }
+
+      function rotate() {
+        if (gameOver || !pieceShape) return;
+        const next = pieceShape[0].map((_, i) => pieceShape.map(row => row[i]).reverse());
+        if (!collides(pieceRow, pieceCol, next)) pieceShape = next;
+      }
+
+      function moveLeft() {
+        if (gameOver || !pieceShape) return;
+        if (!collides(pieceRow, pieceCol - 1, pieceShape)) pieceCol--;
+      }
+
+      function moveRight() {
+        if (gameOver || !pieceShape) return;
+        if (!collides(pieceRow, pieceCol + 1, pieceShape)) pieceCol++;
+      }
+
+      function moveDown() {
+        if (gameOver || !pieceShape) return;
+        if (!collides(pieceRow + 1, pieceCol, pieceShape)) {
+          pieceRow++;
+          score += 1;
+          if (scoreEl) scoreEl.textContent = score;
+          return;
+        }
+        merge();
+        clearLines();
+        spawnPiece();
+      }
+
+      function drawCell(x, y, colorIndex) {
+        const px = PAD + x * (CELL_W + 1);
+        const py = PAD + y * (CELL_H + 1);
+        const color = colorIndex ? COLORS[(colorIndex - 1) % COLORS.length] : 'rgba(255,255,255,0.06)';
+        ctx.fillStyle = color;
+        ctx.fillRect(px, py, CELL_W, CELL_H);
+        if (colorIndex) {
+          ctx.fillStyle = 'rgba(255,255,255,0.25)';
+          ctx.fillRect(px, py, CELL_W, 2);
+        }
+      }
+
+      function render() {
+        ctx.fillStyle = 'rgba(0,0,0,0.3)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (let r = 0; r < ROWS; r++) {
+          for (let c = 0; c < COLS; c++) {
+            drawCell(c, r, board[r][c]);
+          }
+        }
+        if (pieceShape && !gameOver) {
+          for (let y = 0; y < pieceShape.length; y++) {
+            for (let x = 0; x < pieceShape[y].length; x++) {
+              if (pieceShape[y][x]) drawCell(pieceCol + x, pieceRow + y, pieceColor);
+            }
+          }
+        }
+      }
+
+      function loop(now) {
+        if (gameOver) return;
+        if (now - lastDrop >= dropInterval) {
+          lastDrop = now;
+          moveDown();
+        }
+        render();
+        animId = requestAnimationFrame(loop);
+      }
+
+      function startGame() {
+        initBoard();
+        score = 0;
+        confettiShown = false;
+        gameOver = false;
+        lastDrop = performance.now();
+        if (scoreEl) scoreEl.textContent = '0';
+        if (resultEl) resultEl.classList.remove('show');
+        if (overEl) overEl.classList.remove('show');
+        spawnPiece();
+        if (animId) cancelAnimationFrame(animId);
+        animId = requestAnimationFrame(loop);
+      }
+
+      function handleKey(e) {
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].indexOf(e.key) === -1) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (overEl && overEl.classList.contains('show')) return;
+        if (e.key === 'ArrowLeft') moveLeft();
+        if (e.key === 'ArrowRight') moveRight();
+        if (e.key === 'ArrowUp') rotate();
+        if (e.key === 'ArrowDown') moveDown();
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].indexOf(e.key) === -1) return;
+        var hero = document.getElementById('hero');
+        if (!hero) return;
+        var rect = hero.getBoundingClientRect();
+        if (rect.top < -100 || rect.bottom > window.innerHeight + 100) return;
+        handleKey(e);
+      }, true);
+
+      if (wrapEl) {
+        wrapEl.addEventListener('keydown', handleKey);
+        wrapEl.addEventListener('click', function() { wrapEl.focus(); });
+        var heroGame = document.getElementById('heroGame');
+        if (heroGame) heroGame.addEventListener('click', function() { wrapEl.focus(); });
+        var touchStartX = 0, touchStartY = 0;
+        wrapEl.addEventListener('touchstart', function(e) {
+          if (e.touches.length !== 1) return;
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        wrapEl.addEventListener('touchend', function(e) {
+          if (e.changedTouches.length !== 1) return;
+          if (overEl && overEl.classList.contains('show')) return;
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          var dy = e.changedTouches[0].clientY - touchStartY;
+          var min = 30;
+          if (Math.abs(dx) < min && Math.abs(dy) < min) return;
+          if (Math.abs(dx) >= Math.abs(dy)) {
+            if (dx > 0) moveRight(); else moveLeft();
+          } else {
+            if (dy > 0) moveDown();
+            else rotate();
+          }
+        }, { passive: true });
+      }
+
+      if (restartBtn) restartBtn.addEventListener('click', startGame);
+
+      var btnLeft = document.getElementById('tetrisBtnLeft');
+      var btnRight = document.getElementById('tetrisBtnRight');
+      var btnDown = document.getElementById('tetrisBtnDown');
+      var btnRotate = document.getElementById('tetrisBtnRotate');
+      if (btnLeft) btnLeft.addEventListener('click', function() { moveLeft(); wrapEl && wrapEl.focus(); });
+      if (btnRight) btnRight.addEventListener('click', function() { moveRight(); wrapEl && wrapEl.focus(); });
+      if (btnDown) btnDown.addEventListener('click', function() { moveDown(); wrapEl && wrapEl.focus(); });
+      if (btnRotate) btnRotate.addEventListener('click', function() { rotate(); wrapEl && wrapEl.focus(); });
+
+      var heroSection = document.getElementById('hero');
+      if (heroSection && wrapEl) {
+        var heroIO = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) wrapEl.focus();
+          });
+        }, { threshold: 0.2 });
+        heroIO.observe(heroSection);
+      }
+
+      startGame();
+    })();
+
+    // Лоадер при первом заходе
+    (function() {
+      var loader = document.getElementById('pageLoader');
+      if (!loader) return;
+      var seen = sessionStorage.getItem('vibe-seen');
+      if (seen) {
+        loader.classList.add('hidden');
+        return;
+      }
+      setTimeout(function() {
+        loader.classList.add('hidden');
+        sessionStorage.setItem('vibe-seen', '1');
+      }, 1800);
+    })();
+
+    // Печатающийся заголовок на герое (без сдвига вёрстки — место зарезервировано)
+    (function() {
+      var tw = document.querySelector('.hero-title-tw');
+      var typed = document.querySelector('.hero-title-typed');
+      if (!tw || !typed) return;
+      var prefix = 'ВАЙБ-КОДИНГ: ';
+      var suffix = 'С 0 ДО PRO';
+      var full = prefix + suffix;
+      var index = 0;
+      var delay = 75;
+      function typeNext() {
+        if (index > full.length) {
+          tw.classList.add('done');
+          return;
+        }
+        if (index <= prefix.length) {
+          typed.textContent = full.slice(0, index);
+        } else {
+          typed.innerHTML = prefix + '<span class="accent">' + full.slice(prefix.length, index) + '</span>';
+        }
+        index++;
+        setTimeout(typeNext, index <= prefix.length ? delay : delay * 0.85);
+      }
+      setTimeout(typeNext, 600);
+    })();
+
+    // Раскрытие «Секрет этой страницы» на последнем слайде
+    (function() {
+      var btn = document.getElementById('vibeRevealBtn');
+      var block = document.getElementById('vibeRevealBlock');
+      if (!btn || !block) return;
+      btn.addEventListener('click', function() {
+        block.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(function() {
+          block.classList.add('revealed');
+        });
+      });
+    })();
+
+    // «Открыть капот» — показ кода страницы
+    (function() {
+      var btn = document.getElementById('hoodBtn');
+      var block = document.getElementById('hoodBlock');
+      if (!btn || !block) return;
+      btn.addEventListener('click', function() {
+        if (block.hasAttribute('hidden')) {
+          block.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Закрыть капот';
+        } else {
+          block.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Открыть капот';
+        }
+      });
+    })();
+
+    // Конфетти при достижении в Тетрисе
+    (function() {
+      var canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var particles = [];
+      var animId = 0;
+      var colors = ['#00e5a0', '#e74c3c', '#fff', '#ffd89b', '#00c896'];
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.runConfetti = function() {
+        resize();
+        particles = [];
+        for (var i = 0; i < 120; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: canvas.height + 20,
+            vx: (Math.random() - 0.5) * 4,
+            vy: -Math.random() * 8 - 6,
+            size: Math.random() * 8 + 4,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            rotation: Math.random() * 360
+          });
+        }
+        function tick() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          var alive = 0;
+          particles.forEach(function(p) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += 0.2;
+            p.rotation += 4;
+            if (p.y < canvas.height + 50) alive++;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation * Math.PI / 180);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+            ctx.restore();
+          });
+          if (alive > 0) animId = requestAnimationFrame(tick);
+        }
+        tick();
+      };
+      window.addEventListener('resize', resize);
+    })();
+
+    // Фейерверк при появлении слайда «Абсолютно новая программа»
+    (function() {
+      var section = document.getElementById('what-is');
+      var canvas = document.getElementById('what-is-fireworks');
+      if (!section || !canvas) return;
+      var ctx = canvas.getContext('2d');
+      var fired = false;
+      var colors = ['#00e5a0', '#fff', '#ffd89b', '#00c896'];
+      function resize() {
+        canvas.width = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+      }
+      function run() {
+        if (fired) return;
+        fired = true;
+        resize();
+        var cx = canvas.width / 2;
+        var cy = canvas.height / 2 - 40;
+        var particles = [];
+        for (var i = 0; i < 80; i++) {
+          var angle = (Math.PI * 2 * i) / 80 + Math.random() * 0.5;
+          var speed = 3 + Math.random() * 6;
+          particles.push({
+            x: cx,
+            y: cy,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 2,
+            life: 1,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            size: 2 + Math.random() * 3
+          });
+        }
+        function tick() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          var alive = 0;
+          particles.forEach(function(p) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += 0.15;
+            p.vx *= 0.98;
+            p.life -= 0.02;
+            if (p.life > 0) alive++;
+            ctx.globalAlpha = p.life;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+          });
+          if (alive > 0) {
+            requestAnimationFrame(tick);
+          } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          }
+        }
+        tick();
+      }
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) run();
+        });
+      }, { threshold: 0.3 });
+      io.observe(section);
+      window.addEventListener('resize', resize);
+    })();
+
+    // Счётчики при появлении
+    (function() {
+      var els = document.querySelectorAll('.count-up');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          var count = parseInt(el.getAttribute('data-count'), 10) || 0;
+          var suffix = el.getAttribute('data-suffix') || '';
+          var duration = 1200;
+          var start = 0;
+          var startTime = null;
+          function step(now) {
+            if (!startTime) startTime = now;
+            var t = Math.min((now - startTime) / duration, 1);
+            t = 1 - Math.pow(1 - t, 2);
+            var val = Math.round(start + (count - start) * t);
+            el.textContent = val + suffix;
+            if (t < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.3 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+
+    // След за курсором на герое
+    (function() {
+      var glow = document.getElementById('cursorGlow');
+      var hero = document.getElementById('hero');
+      if (!glow || !hero) return;
+      function update(e) {
+        var rect = hero.getBoundingClientRect();
+        if (rect.top > window.innerHeight || rect.bottom < 0) {
+          glow.classList.remove('visible');
+          return;
+        }
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+        glow.classList.add('visible');
+      }
+      document.addEventListener('mousemove', update);
+      document.addEventListener('mouseleave', function() { glow.classList.remove('visible'); });
+    })();
+
+    // Плавающая кнопка CTA после скролла
+    (function() {
+      var btn = document.getElementById('floatCta');
+      var hero = document.getElementById('hero');
+      if (!btn || !hero) return;
+      function check() {
+        var rect = hero.getBoundingClientRect();
+        if (rect.bottom < 0) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+      }
+      window.addEventListener('scroll', check);
+      window.addEventListener('resize', check);
+    })();
+
+    // Параллакс на герое
+    (function() {
+      var layer = document.getElementById('heroParallaxLayer');
+      if (!layer) return;
+      function update() {
+        var hero = document.getElementById('hero');
+        if (!hero) return;
+        var rect = hero.getBoundingClientRect();
+        var center = rect.top + rect.height / 2;
+        var viewportCenter = window.innerHeight / 2;
+        var offset = (center - viewportCenter) * 0.15;
+        layer.style.transform = 'translateY(' + offset + 'px)';
+      }
+      window.addEventListener('scroll', update);
+      window.addEventListener('resize', update);
+      update();
+    })();
+
+    // 3D наклон карточек тарифов
+    (function() {
+      var cards = document.querySelectorAll('[data-tilt]');
+      cards.forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+          var rect = card.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          var tiltX = -y * 8;
+          var tiltY = x * 8;
+          card.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg)';
+        });
+        card.addEventListener('mouseleave', function() {
+          card.style.transform = '';
+        });
+      });
+    })();
+    }); // end DOMContentLoaded
+  </script>
+</body>
+</html>
