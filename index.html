@@ -59,12 +59,23 @@
         min-height: auto;
         padding: 1.75rem 4%;
       }
+      .slide-hero {
+        min-height: 100vh;
+        padding: 1.25rem 4% 1.5rem;
+        justify-content: flex-start;
+      }
+      .slide-hero .hero-text {
+        margin-top: 0;
+      }
+      .hero-game {
+        margin-top: 2rem;
+        padding: 1rem;
+      }
       .slide-title { margin-bottom: 0.65rem; }
       .slide-subtitle { margin-bottom: 1rem; }
       .slide-body { margin-top: 1rem; }
       body { padding-bottom: 2rem; }
       .cta-line { margin-top: 1.25rem; }
-      .hero-game { margin-top: 1.25rem; padding: 1rem; }
       .tariff-alumni-note { margin-top: 1.25rem; padding: 1rem 1.25rem; }
       .program-scroll-wrap { margin-top: 1rem; padding: 1rem; }
       .final-cta-wrap { margin-top: 0.5rem; }
@@ -3383,16 +3394,6 @@
       if (btnRight) btnRight.addEventListener('click', function() { moveRight(); wrapEl && wrapEl.focus(); });
       if (btnDown) btnDown.addEventListener('click', function() { moveDown(); wrapEl && wrapEl.focus(); });
       if (btnRotate) btnRotate.addEventListener('click', function() { rotate(); wrapEl && wrapEl.focus(); });
-
-      var heroSection = document.getElementById('hero');
-      if (heroSection && wrapEl) {
-        var heroIO = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) wrapEl.focus();
-          });
-        }, { threshold: 0.2 });
-        heroIO.observe(heroSection);
-      }
 
       startGame();
     })();
