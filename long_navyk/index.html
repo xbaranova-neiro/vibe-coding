@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru" data-vb-morning-hour="12">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нейросети попробовали почти все</title>
+  <meta name="description" content="Как перейти от чат-бота и картинок к работающему продукту — сайту, боту или мини-сервису.">
+  <link rel="canonical" href="https://vibecode.neiroguru.ru/long_navyk/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vibecode.neiroguru.ru/long_navyk/">
+  <meta property="og:title" content="Нейросети попробовали почти все. Но мало кто понимает, что делать дальше">
+  <meta property="og:description" content="Как перейти от чат-бота и картинок к работающему продукту — сайту, боту или мини-сервису.">
+  <meta property="og:image" content="https://vibecode.neiroguru.ru/long_navyk/assets/hero-1.jpg">
+  <meta property="og:site_name" content="Ксения Баранова · Школа нейросетей">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/onest-cyrillic.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/onest-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-sans-cyrillic.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-sans-latin.woff2" crossorigin>
+  <style id="local-fonts">
+/* Self-hosted longreads fonts */
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: block;
+  src: url('assets/fonts/cormorant-garamond-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url('assets/fonts/ibm-plex-sans-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url('assets/fonts/ibm-plex-sans-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url('assets/fonts/ibm-plex-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url('assets/fonts/ibm-plex-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: block;
+  src: url('assets/fonts/onest-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: block;
+  src: url('assets/fonts/onest-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: block;
+  src: url('assets/fonts/onest-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: block;
+  src: url('assets/fonts/onest-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: block;
+  src: url('assets/fonts/unbounded-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: block;
+  src: url('assets/fonts/unbounded-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: block;
+  src: url('assets/fonts/unbounded-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: block;
+  src: url('assets/fonts/unbounded-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+  </style>
+  <link rel="stylesheet" href="assets/longreads.css?v=zen2">
+  <link rel="preload" as="image" href="assets/hero-1.jpg" fetchpriority="high">
+  <script>
+    (function () {
+      var STORE_PREFIX = 'vb_attr_';
+      var ATTR_KEYS = [
+        'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+        'yclid', 'gclid', 'fbclid', 'msclkid', 'ysclid'
+      ];
+
+      function storeGet(k) {
+        try { return sessionStorage.getItem(STORE_PREFIX + k); } catch (e) { return null; }
+      }
+      function storeSet(k, v) {
+        try { sessionStorage.setItem(STORE_PREFIX + k, v); } catch (e) {}
+      }
+      function isAttrKey(k) {
+        if (!k) return false;
+        var key = String(k).toLowerCase();
+        if (key.indexOf('utm_') === 0) return true;
+        return ATTR_KEYS.indexOf(key) !== -1;
+      }
+
+      function collectFromSearch(search) {
+        var q = new URLSearchParams(search || '');
+        var out = {};
+        q.forEach(function (v, k) {
+          if (!v) return;
+          if (!isAttrKey(k)) return;
+          out[k.toLowerCase()] = v;
+        });
+        return out;
+      }
+
+      // 1) URL → session (актуальный клик Директа / UTM)
+      var fromUrl = collectFromSearch(location.search);
+      Object.keys(fromUrl).forEach(function (k) { storeSet(k, fromUrl[k]); });
+
+      // 2) session → URL (если человек ушёл без query и вернулся на ленд)
+      var merged = new URLSearchParams(location.search);
+      var changed = false;
+      ATTR_KEYS.forEach(function (k) {
+        if (merged.has(k)) return;
+        var v = storeGet(k);
+        if (v) { merged.set(k, v); changed = true; }
+      });
+      // любые доп. utm_* из стораджа
+      try {
+        for (var i = 0; i < sessionStorage.length; i++) {
+          var sk = sessionStorage.key(i);
+          if (!sk || sk.indexOf(STORE_PREFIX + 'utm_') !== 0) continue;
+          var uk = sk.slice(STORE_PREFIX.length);
+          if (!merged.has(uk)) {
+            var uv = sessionStorage.getItem(sk);
+            if (uv) { merged.set(uk, uv); changed = true; }
+          }
+        }
+      } catch (e) {}
+
+      if (changed) {
+        try {
+          var next = location.pathname + (merged.toString() ? '?' + merged.toString() : '') + location.hash;
+          history.replaceState(null, '', next);
+        } catch (e) {}
+      }
+
+      window.__adsParams = function () {
+        var p = new URLSearchParams();
+        var live = new URLSearchParams(location.search);
+        ATTR_KEYS.forEach(function (k) {
+          var v = live.get(k) || storeGet(k);
+          if (v) p.set(k, v);
+        });
+        try {
+          for (var i = 0; i < sessionStorage.length; i++) {
+            var sk = sessionStorage.key(i);
+            if (!sk || sk.indexOf(STORE_PREFIX + 'utm_') !== 0) continue;
+            var uk = sk.slice(STORE_PREFIX.length);
+            if (!p.has(uk)) {
+              var uv = sessionStorage.getItem(sk);
+              if (uv) p.set(uk, uv);
+            }
+          }
+        } catch (e) {}
+        return p;
+      };
+      // совместимость со старым кодом
+      window.__utmParams = window.__adsParams;
+
+      window.__withUtm = function (url) {
+        if (!url || url.charAt(0) === '#') return url;
+        try {
+          var u = new URL(url, location.href);
+          window.__adsParams().forEach(function (v, k) {
+            if (!u.searchParams.has(k)) u.searchParams.set(k, v);
+          });
+          return u.toString();
+        } catch (e) { return url; }
+      };
+
+      window.__applyAdsParamsToUrl = function (href) {
+        try {
+          var u = new URL(href, location.href);
+          window.__adsParams().forEach(function (v, k) {
+            if (!u.searchParams.has(k)) u.searchParams.set(k, v);
+          });
+          return u.toString();
+        } catch (e) { return href; }
+      };
+    })();
+  </script>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110878568', 'ym');
+
+      ym(110878568, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/110878568" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<main class="zen-site">
+  <article class="zen-article">
+    <header class="zen-header">
+      <h1>Нейросети попробовали почти все. Но мало кто понимает, что делать дальше</h1>
+      <p class="zen-dek">Как перейти от чат-бота и картинок к работающему продукту — сайту, боту или мини-сервису.</p>
+    </header>
+    <figure class="zen-banner">
+      <img src="assets/hero-1.jpg" alt="" width="1600" height="900" fetchpriority="high">
+    </figure>
+    <div class="zen-lead">
+      <p>Написать текст. Сгенерировать картинку. Задать пару вопросов чат-боту. На этом знакомство с нейросетями у большинства заканчивается.</p><p>Дальше возникает ощущение тупика: инструмент явно мощный, но непонятно, как превратить его в что-то своё — в продукт, за который кто-то платит.</p><p>Разрыв здесь не в знаниях о нейросетях. Он в том, что почти никто не показывает следующий шаг.</p>
+    </div><hr class="zen-rule"><section class="zen-section"><h2>Где заканчивается «поиграть» и начинается навык</h2><p>Генерация текстов и картинок — это использование чужого продукта. Вы получаете файл, но не получаете ничего, что работает само.</p><p>Следующий уровень — когда вы собираете нейросетью не файл, а работающий инструмент. Сайт, который открывается по ссылке. Бота, который отвечает людям без вас — и не обязательно в Telegram, а на той площадке, где ваша аудитория. Небольшой сервис, который что-то считает или хранит.</p><p>Это и называется вайб-кодинг: вы описываете обычными словами, что должно получиться, а модель пишет за вас код.</p></section><hr class="zen-rule"><section class="zen-section"><h2>Что реально получается собрать</h2><ul><li>Сайт-визитку или лендинг под конкретное предложение.</li><li>Чат-бота, который принимает заявки и отвечает на типовые вопросы — в ВК, в MAX или там, где сидит ваша аудитория.</li><li>Калькулятор услуг, планировщик, форму заявки, квиз.</li><li>Дашборд, который сводит цифры из разных таблиц на один экран.</li><li>Мини-игру для вовлечения прямо на странице.</li><li>Мини-сервис под задачу, для которой нет готового приложения.</li></ul><p>Всё это — законченные продукты. Их можно показать, отдать заказчику, поставить себе.</p></section><hr class="zen-rule"><section class="zen-section"><h2>Почему за это платят</h2><p>Малому бизнесу такие инструменты нужны постоянно: сайт под акцию, бот для записи, калькулятор на страницу услуг.</p><p>Раньше он не мог их получить — искать разработчика ради задачи на три часа невыгодно, стоимость согласований выходит выше самой работы. Поэтому подобные задачи годами просто не делались.</p><p>Сейчас их можно закрывать быстро. Спрос при этом никуда не делся — он копился годами.</p></section><hr class="zen-rule"><figure class="zen-banner"><img src="assets/hero-2.jpg" alt="Работа с нейросетью на ноутбуке" width="1600" height="900" loading="lazy"></figure><hr class="zen-rule"><section class="zen-section"><h2>Почему по описанию этого не понять</h2><p>Всё, что написано выше, звучит логично — но по тексту нельзя понять, ваше это или нет. Пока не соберёшь первую вещь руками, остаётся ощущение, что где-то есть подвох или скрытая сложность.</p><p>Самый короткий путь — один раз пройти дорогу целиком: от идеи до работающего инструмента. Дальше уже можно решать, нужно вам это или нет.</p></section><hr class="zen-rule"><section class="zen-section"><h2>Что будет на бесплатном мастер-классе</h2><p>Три часа, всё собирается в прямом эфире — вы повторяете за ведущим на своём компьютере. Не лекция и не разбор слайдов: от пустого экрана до рабочего результата.</p><ul><li>Бот в ВК и бот в MAX, работающие по вашим сценариям.</li><li>Сайт с подключённым GigaChat, который сам отвечает посетителям.</li><li>Мини-сервис, собранный из вашей собственной идеи.</li></ul><p>К концу эфира у вас три готовых работы — их уже можно показывать как портфолио — и понимание, как повторять это без подсказки.</p><p>Больше 2 000 человек уже собрали своё первое приложение именно так.</p></section><hr class="zen-rule"><section class="zen-teacher">
+      <p class="zen-teacher__label">Ведёт</p>
+      <h2>Ксения Баранова</h2>
+      <p>Основатель одной из крупнейших школ по нейросетям в СНГ, более 400 000 учеников. Победитель премии GetAward 2026 в номинации «Обучение года».</p>
+    </section><hr class="zen-rule"><section class="zen-cta" id="register">
+      <p class="zen-cta__free">Участие бесплатное. Ссылку на эфир пришлём на почту и в бота.</p>
+      <div class="zen-cta__row"><a href="#" class="btn-main" data-vb-open="morning"><span class="cta-label">Зарегистрироваться на 12:00</span><span class="cta-meta">→</span></a><a href="#" class="btn-main" data-vb-open="evening"><span class="cta-label">Зарегистрироваться на 19:00</span><span class="cta-meta">→</span></a></div>
+      <p class="zen-cta__after">Это ни к чему не обязывает. Просто приходите и соберите первую вещь своими руками — а дальше решите сами.</p>
+    </section>
+  </article>
+  <footer class="zen-footer">
+  <div class="zen-footer__inner">
+    <p>© 2026 Ксения Баранова · Школа SMM и нейросетей</p>
+    <div class="zen-footer__links">
+      <a href="https://xeniabaranova-school.ru/politica" target="_blank" rel="noopener noreferrer">Политика обработки данных</a>
+      <a href="https://xeniabaranova-school.ru/oferta_vibe-code" target="_blank" rel="noopener noreferrer">Публичная оферта</a>
+    </div>
+    <p class="zen-footer__legal">ИП Баранова Ксения Николаевна · ИНН 027402381827 · ОГРНИП 317028000116318 · Лицензия № Л035-01198-02/00172850</p>
+  </div>
+</footer>
+</main>
+
+<div class="reg-popup" id="reg-popup" aria-hidden="true">
+  <button type="button" class="reg-popup-backdrop" data-reg-close aria-label="Закрыть"></button>
+  <div class="reg-popup-panel" role="dialog" aria-modal="true" aria-labelledby="reg-popup-title">
+    <button type="button" class="reg-popup-close" data-reg-close aria-label="Закрыть">&times;</button>
+    <p id="reg-popup-title" class="sr-only">Регистрация на вебинар</p>
+    <div class="reg-popup-widget" id="reg-widget-host">
+      <div class="reg-popup-loader" aria-hidden="true"></div>
+      <div id="reg-slot-morning" class="reg-gc-slot">
+        <script id="e04c03445c8ba4aec27ab796b60f0f071be8d545" src="https://neyroseti.neiroguru.ru/pl/lite/widget/script?id=1603538"></script>
+      </div>
+      <div id="reg-slot-evening" class="reg-gc-slot">
+        <script id="a8f9560ed2afaa8af661741fad2cba9bd600204e" src="https://neyroseti.neiroguru.ru/pl/lite/widget/script?id=1603540"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/js/neiro-vb-landing.js"></script>
+<script>
+/* GetCourse: id=1603538 утро, id=1603540 вечер (neyroseti.neiroguru.ru) */
+var REG_WIDGETS = {
+  morning: { scriptId: 'e04c03445c8ba4aec27ab796b60f0f071be8d545' },
+  evening: { scriptId: 'a8f9560ed2afaa8af661741fad2cba9bd600204e' }
+};
+
+function syncUtmToUrl() {
+  /* атрибуция уже применена в <head>; здесь — страховка перед открытием формы */
+  if (!window.__adsParams && !window.__utmParams) return;
+  var params = (window.__adsParams || window.__utmParams)();
+  if (!params.toString()) return;
+  try {
+    var url = new URL(location.href);
+    params.forEach(function (v, k) {
+      if (!url.searchParams.has(k)) url.searchParams.set(k, v);
+    });
+    history.replaceState(null, '', url.pathname + (url.searchParams.toString() ? '?' + url.searchParams.toString() : '') + url.hash);
+  } catch (e) {}
+}
+
+function applyAdsParamsToWidgetIframes(root) {
+  if (!root || !window.__applyAdsParamsToUrl) return;
+  root.querySelectorAll('iframe').forEach(function (iframe) {
+    if (!iframe.src) return;
+    var next = window.__applyAdsParamsToUrl(iframe.src);
+    if (next && next !== iframe.src) iframe.src = next;
+  });
+}
+
+var regScrollY = 0;
+var regViewportTimer = null;
+var regTouchBlocker = null;
+
+function getRegWidgetHost() {
+  return document.getElementById('reg-widget-host');
+}
+
+function markRegWidgetReady() {
+  var host = getRegWidgetHost();
+  if (host) host.classList.add('is-ready');
+}
+
+function lockPageScroll() {
+  regScrollY = window.scrollY || window.pageYOffset || 0;
+  var scrollbar = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.paddingRight = scrollbar > 0 ? scrollbar + 'px' : '';
+  document.documentElement.classList.add('reg-popup-open');
+  document.body.classList.add('reg-popup-open');
+  regTouchBlocker = function (ev) {
+    var panel = document.querySelector('.reg-popup-panel');
+    if (panel && panel.contains(ev.target)) return;
+    ev.preventDefault();
+  };
+  document.addEventListener('touchmove', regTouchBlocker, { passive: false });
+}
+
+function unlockPageScroll() {
+  document.documentElement.classList.remove('reg-popup-open');
+  document.body.classList.remove('reg-popup-open');
+  document.body.style.paddingRight = '';
+  if (regTouchBlocker) {
+    document.removeEventListener('touchmove', regTouchBlocker);
+    regTouchBlocker = null;
+  }
+}
+
+function fitRegPopupViewport() {
+  var popup = document.getElementById('reg-popup');
+  if (!popup || !popup.classList.contains('is-open')) return;
+  if (window.innerWidth > 760 || !window.visualViewport) {
+    popup.style.height = '';
+    popup.style.top = '';
+    return;
+  }
+  popup.style.height = window.visualViewport.height + 'px';
+  popup.style.top = window.visualViewport.offsetTop + 'px';
+}
+
+function scheduleRegViewportFit() {
+  if (regViewportTimer) window.clearTimeout(regViewportTimer);
+  regViewportTimer = window.setTimeout(function () {
+    regViewportTimer = null;
+    fitRegPopupViewport();
+  }, 80);
+}
+
+function resetRegPopupViewport() {
+  var popup = document.getElementById('reg-popup');
+  if (!popup) return;
+  popup.style.height = '';
+  popup.style.top = '';
+}
+
+function openRegForm(slot) {
+  syncUtmToUrl();
+  var morning = document.getElementById('reg-slot-morning');
+  var evening = document.getElementById('reg-slot-evening');
+  if (!morning || !evening) return;
+  var isEvening = slot === 'evening';
+  morning.style.display = isEvening ? 'none' : 'block';
+  evening.style.display = isEvening ? 'block' : 'none';
+  applyAdsParamsToWidgetIframes(isEvening ? evening : morning);
+  openRegPopup();
+}
+
+function openRegPopup() {
+  var popup = document.getElementById('reg-popup');
+  if (!popup || popup.classList.contains('is-open')) return;
+  syncUtmToUrl();
+  lockPageScroll();
+  popup.classList.add('is-open');
+  popup.setAttribute('aria-hidden', 'false');
+  fitRegPopupViewport();
+  if (getRegWidgetHost() && getRegWidgetHost().querySelector('iframe')) markRegWidgetReady();
+  requestAnimationFrame(function () {
+    var closeBtn = popup.querySelector('.reg-popup-close');
+    if (closeBtn) closeBtn.focus({ preventScroll: true });
+  });
+}
+
+function closeRegPopup() {
+  var popup = document.getElementById('reg-popup');
+  if (!popup || !popup.classList.contains('is-open')) return;
+  popup.classList.remove('is-open');
+  popup.setAttribute('aria-hidden', 'true');
+  resetRegPopupViewport();
+  unlockPageScroll();
+}
+
+function initRegWidgetMessages() {
+  window.addEventListener('message', function (e) {
+    if (!e.data || !e.data.height) return;
+    var ids = [REG_WIDGETS.morning.scriptId, REG_WIDGETS.evening.scriptId];
+    if (ids.indexOf(e.data.uniqName) !== -1 && e.data.height > 80) markRegWidgetReady();
+  });
+}
+
+function initRegPopup() {
+  syncUtmToUrl();
+  initRegWidgetMessages();
+  document.querySelectorAll('[data-reg-close]').forEach(function (el) {
+    el.addEventListener('click', closeRegPopup);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeRegPopup();
+  });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', scheduleRegViewportFit);
+    window.visualViewport.addEventListener('scroll', scheduleRegViewportFit);
+  }
+  window.addEventListener('resize', scheduleRegViewportFit);
+  if (window.VIBE_VB) {
+    window.VIBE_VB.init({ openRegModal: openRegForm });
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRegPopup);
+} else {
+  initRegPopup();
+}
+</script>
+
+</body>
+</html>
